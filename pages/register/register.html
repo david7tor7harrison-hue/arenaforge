@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+	<meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>
+		Tournament Registration
+	</title>
+	
+	<link rel="stylesheet" href="register.css">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	
+</head>
+
+<body>
+	
+	<nav class="navbar">
+		
+		<div class="nav-left">
+			
+			<img src="../../assets/logo.png" class="logo">
+			
+			<div class="nav-text">
+				
+				<h1>ArenaForge</h1>
+				
+				<span>
+					Tournament Registration
+				</span>
+				
+			</div>
+			
+		</div>
+		
+	</nav>
+	
+	<main>
+		<div class="payment-card">
+			
+			<h3>
+				Payment Details
+			</h3>
+			
+			<img src="../../assets/payment-qr.png" class="payment-qr" alt="Payment QR">
+			
+			<p>
+				UPI ID:
+				arenaforge@upi
+			</p>
+			
+			<p>
+				Pay exact tournament entry fee.
+			</p>
+			
+			<p>
+				After payment enter your UTR number below.
+			</p>
+			
+		</div>
+		<div id="tournamentInfo">
+			
+			Loading Tournament...
+			
+		</div>
+		
+<form id="registrationForm">
+
+  <input
+    type="text"
+    id="playerKey"
+    placeholder="Player Key (AX12345)"
+    required
+  >
+
+  <input
+    type="text"
+    id="utr"
+    placeholder="UTR Number"
+    required
+  >
+
+  <label>
+
+    <input
+      type="checkbox"
+      id="rules"
+      required
+    >
+
+    I accept all rules and terms
+
+  </label>
+
+  <button
+    type="submit"
+    class="submit-btn"
+  >
+    Submit Registration
+  </button>
+
+</form>
+		
+	</main>
+	
+	<script src="register.js"></script>
+	
+</body>
+
+</html>
