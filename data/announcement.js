@@ -4,7 +4,7 @@ const announcements = [
 id:1,
 type:"important",
 message:
-"🔥 SOLO TOP PRIZE MATCH LIVE NOW • JOIN FAST"
+"⚠ Website abhi testing mode me hai !!! Don't try to register"
 },
 
 {
@@ -18,7 +18,7 @@ message:
 id:3,
 type:"notice",
 message:
-"⚠ Recording Mandatory Hai Prize Claim Ke Liye"
+"⚠ Website abhi testing me hai to please Registration ke liye try bikul na kare.."
 }
 
 ];
