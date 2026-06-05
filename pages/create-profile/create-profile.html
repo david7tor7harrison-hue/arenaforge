@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+	<meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>
+		Create Profile
+	</title>
+	
+	<link rel="stylesheet" href="create-profile.css">
+	
+</head>
+
+<body>
+	
+	<div class="container">
+		
+		<h1>
+			Create Player Profile
+		</h1>
+		
+		<form id="profileForm">
+			
+			<div class="card">
+				
+				<h2>
+					Account Details
+				</h2>
+				
+				<input type="email" id="email" placeholder="Email" required>
+				
+				<input type="text" id="upi" placeholder="UPI ID" required>
+				
+				<input type="password" id="password" placeholder="Password" required>
+				
+				<input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+				
+			</div>
+			
+			<div class="card">
+				
+				<h2>
+					Solo Profile
+				</h2>
+				
+				<input type="text" id="soloName" placeholder="Player Name" required>
+				
+				<input type="text" id="soloUid" placeholder="Player UID" required>
+				
+			</div>
+			
+			<div class="card">
+				
+				<h2>
+					Duo Team
+				</h2>
+				
+				<input type="text" id="duoP1Name" placeholder="Player 1 Name">
+				
+				<input type="text" id="duoP1Uid" placeholder="Player 1 UID">
+				
+				<input type="text" id="duoP2Name" placeholder="Player 2 Name">
+				
+				<input type="text" id="duoP2Uid" placeholder="Player 2 UID">
+				
+			</div>
+			
+			<div class="card">
+				
+				<h2>
+					Squad Team
+				</h2>
+				
+				<input type="text" id="squadP1Name" placeholder="Player 1 Name">
+				
+				<input type="text" id="squadP1Uid" placeholder="Player 1 UID">
+				
+				<input type="text" id="squadP2Name" placeholder="Player 2 Name">
+				
+				<input type="text" id="squadP2Uid" placeholder="Player 2 UID">
+				
+				<input type="text" id="squadP3Name" placeholder="Player 3 Name">
+				
+				<input type="text" id="squadP3Uid" placeholder="Player 3 UID">
+				
+				<input type="text" id="squadP4Name" placeholder="Player 4 Name">
+				
+				<input type="text" id="squadP4Uid" placeholder="Player 4 UID">
+				
+			</div>
+			
+			<button type="submit" id="submitBtn">
+			
+				Create Profile
+				
+			</button>
+			
+		</form>
+		
+		<div id="successBox" class="success-box">
+			
+			<h2>
+				Profile Created Successfully
+			</h2>
+			
+			<p>
+				Your Player Key
+			</p>
+			
+			<h1 id="playerKeyText">
+			</h1>
+			
+			<p>
+				A copy has been sent
+				to your email.
+			</p>
+			
+		</div>
+		
+	</div>
+	
+	<script src="create-profile.js">
+	</script>
+	
+</body>
+
+</html>

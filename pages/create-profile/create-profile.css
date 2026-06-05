@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  
+  background: #050505;
+  
+  color: #ffffff;
+  
+  font-family:
+    Arial,
+    sans-serif;
+  
+  padding: 20px;
+  
+}
+
+.container {
+  
+  max-width: 900px;
+  
+  margin: auto;
+  
+}
+
+h1 {
+  
+  text-align: center;
+  
+  color: #00ff99;
+  
+  margin-bottom: 25px;
+  
+}
+
+.card {
+  
+  background: #0c0c0c;
+  
+  border: 1px solid #00ff99;
+  
+  border-radius: 16px;
+  
+  padding: 20px;
+  
+  margin-bottom: 20px;
+  
+}
+
+.card h2 {
+  
+  color: #00ff99;
+  
+  margin-bottom: 15px;
+  
+}
+
+input {
+  
+  width: 100%;
+  
+  background: #111111;
+  
+  color: #ffffff;
+  
+  border: 1px solid #222222;
+  
+  border-radius: 10px;
+  
+  padding: 14px;
+  
+  margin-bottom: 12px;
+  
+  outline: none;
+  
+  font-size: 15px;
+  
+}
+
+input:focus {
+  
+  border-color: #00ff99;
+  
+}
+
+button {
+  
+  width: 100%;
+  
+  border: none;
+  
+  border-radius: 12px;
+  
+  padding: 16px;
+  
+  background: #00ff99;
+  
+  color: #000000;
+  
+  font-size: 16px;
+  
+  font-weight: bold;
+  
+  cursor: pointer;
+  
+  transition: 0.3s;
+  
+}
+
+button:hover {
+  
+  transform: translateY(-2px);
+  
+}
+
+.success-box {
+  
+  display: none;
+  
+  text-align: center;
+  
+  background: #0c0c0c;
+  
+  border: 1px solid #00ff99;
+  
+  border-radius: 16px;
+  
+  padding: 30px;
+  
+  margin-top: 25px;
+  
+}
+
+.success-box h2 {
+  
+  color: #00ff99;
+  
+  margin-bottom: 15px;
+  
+}
+
+#playerKeyText {
+  
+  color: #00ff99;
+  
+  font-size: 42px;
+  
+  margin: 20px 0;
+  
+  letter-spacing: 3px;
+  
+}
+
+@media(max-width:768px) {
+  
+  body {
+    
+    padding: 15px;
+    
+  }
+  
+  .card {
+    
+    padding: 15px;
+    
+  }
+  
+  #playerKeyText {
+    
+    font-size: 32px;
+    
+  }
+  
+}
