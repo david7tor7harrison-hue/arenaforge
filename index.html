@@ -1,0 +1,536 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+	<meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>ArenaForge</title>
+	
+	<!-- Fonts -->
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	
+	<!-- Icons -->
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	
+	<!-- CSS -->
+	
+	<link rel="stylesheet" href="style.css">
+	
+</head>
+
+<body>
+	
+	<!-- NAVBAR -->
+	
+	<nav class="navbar">
+		
+		<div class="nav-left">
+			
+			<img src="assets/logo.png" alt="Logo" class="logo">
+			
+			<div class="nav-text">
+				
+				<h1>ArenaForge</h1>
+				
+				<span>Esports Platform</span>
+				
+			</div>
+			
+		</div>
+		
+		<div class="nav-right">
+			
+			<button class="nav-btn">
+			
+				<i class="fa-solid fa-house"></i>
+				
+			</button>
+			
+		</div>
+		
+	</nav>
+	
+	
+	<!-- MAIN -->
+	
+	<main class="main-container">
+		
+		<!-- ANNOUNCEMENT -->
+		
+		<section class="announcement-box" id="announcementSection">
+			
+			<div class="announcement-header">
+				
+				<i class="fa-solid fa-bullhorn"></i>
+				
+				<h2>
+					Announcements
+				</h2>
+				
+			</div>
+			
+			<div id="announcementContainer">
+				
+			</div>
+			
+		</section>
+		
+		
+		<!-- HERO -->
+		
+		<section class="hero">
+			
+			<div class="hero-overlay"></div>
+			
+			<div class="hero-content">
+				
+				<span class="hero-tag">
+					READ RULES
+				</span>
+				
+				<h1>
+					ARENAFORGE PVT CONTEST RULES
+				</h1>
+				
+				<p>
+					India's trusted Free Fire tournament platform.
+					Compete with pro players and win exciting rewards.
+				</p>
+				
+				<div class="hero-buttons">
+					
+					<a href="pages/rules/rules.html" class="hero-btn primary-btn">
+						Tap To Read
+					</a>
+					
+					<a href="#tournamentModes" class="hero-btn secondary-btn">
+						Join Tournament
+					</a>
+				</div>
+			</div>
+			
+		</section>
+		
+		
+		<!-- QUICK ACTIONS -->
+		
+		<section class="account-box">
+			
+			<a href="pages/results/results.html" class="account-card">
+			
+				<div class="account-icon">
+					<i class="fa-solid fa-trophy"></i>
+				</div>
+				
+				<h3>Results</h3>
+				
+			</a>
+			
+			<a href="pages/rules/rules.html" class="account-card">
+			
+				<div class="account-icon">
+					<i class="fa-solid fa-book-open"></i>
+				</div>
+				
+				<h3>Rules</h3>
+				
+			</a>
+			
+			<a href="pages/room-details/room-details.html" class="account-card">
+			
+				<div class="account-icon">
+					<i class="fa-solid fa-bullhorn"></i>
+				</div>
+				
+				<h3>Room Details</h3>
+				
+			</a>
+			
+			<a href="#tournamentModes" class="account-card">
+			
+				<div class="account-icon">
+					<i class="fa-solid fa-crosshairs"></i>
+				</div>
+				
+				<h3>Join Match</h3>
+				
+			</a>
+			
+		</section>
+		
+		<section id="tournamentModes">
+			
+			<h2 class="section-title">
+				Tournament Modes
+			</h2>
+			
+			<!-- STATIC HTML CARDS
+
+			<div class="games-container">
+				
+				<div class="games-grid">
+
+					<a href="pages/tournaments/tournaments.html?category=battle_royal">
+						<div class="game-image">
+							<img src="assets/modes/battle-royale.png" alt="Battle Royale">
+							
+							<div class="game-overlay"></div>
+							
+							<div class="game-name">
+								Battle Royale
+							</div>
+						</div>
+					</a>
+					
+
+					<a href="pages/tournaments/tournaments.html?category=ff_survival">
+						<div class="game-image">
+							<img src="assets/modes/ff-survival.png" alt="FF Survival">
+							
+							<div class="game-overlay"></div>
+							
+							<div class="game-name">
+								FF Survival
+							</div>
+						</div>
+					</a>-->
+								<div class="games-container">
+				
+				<div class="games-grid">
+					<!-- CARD 3 -->
+					<a href="pages/tournaments/tournaments.html?category=cs_lw_1v1">
+						<div class="game-image">
+							<img src="assets/modes/cs-lw-1v1.png" alt="CS/LW 1V1">
+							
+							<div class="game-overlay"></div>
+							
+							<div class="game-name">
+								LoneWolf 1V1
+							</div>
+						</div>
+					</a>
+					
+					<!-- CARD 4 -->
+					<a href="pages/tournaments/tournaments.html?category=cs_lw_2v2">
+						<div class="game-image">
+							<img src="assets/modes/cs-lw-2v2.png" alt="CS/LW 2V2">
+							
+							<div class="game-overlay"></div>
+							
+							<div class="game-name">
+								LoneWolf 2V2
+							</div>
+						</div>
+					</a>
+					
+					<!-- CARD 5 -->
+					<a href="pages/tournaments/tournaments.html?category=head_1v1">
+						<div class="game-image">
+							<img src="assets/modes/head-1v1.png" alt="Only Head 1V1">
+							
+							<div class="game-overlay"></div>
+							
+							<div class="game-name">
+								Only Head 1V1 (CS)
+							</div>
+						</div>
+					</a>
+					
+					<!-- CARD 6 -->
+					<a href="pages/tournaments/tournaments.html?category=cs_4v4">
+						<div class="game-image">
+							<img src="assets/modes/cs-4v4.png" alt="CS 4V4">
+							
+							<div class="game-overlay"></div>
+							
+							<div class="game-name">
+								CS 4V4
+							</div>
+						</div>
+					</a>
+					
+					<!-- CARD 7 -->
+					<a href="pages/tournaments/tournaments.html?category=head_2v2">
+						<div class="game-image">
+							<img src="assets/modes/head-2v2.png" alt="Only Head 2V2">
+							
+							<div class="game-overlay"></div>
+							
+							<div class="game-name">
+								Only Head 2V2 (CS)
+							</div>
+						</div>
+					</a>
+					
+					<!-- CARD 8 -->
+					<a href="commingsoon" class="game-card">
+						<div class="game-image">
+							<img src="assets/modes/free-match.png" alt="Paid Private Match">
+							
+							<div class="game-overlay"></div>
+							
+							<div class="game-name">
+								Paid Private Match Coming Soon..
+							</div>
+						</div>
+					</a>
+					
+				</div>
+				
+			</div>
+			
+			
+		</section>
+		<!-- HOT MODES -->
+		<section class="hot-section">
+			
+			<div class="hot-box">
+				
+				<div class="hot-header">
+					<i class="fa-solid fa-fire"></i>
+					<h2>Hot Modes</h2>
+				</div>
+				
+				<div class="hot-cards">
+					
+					<div class="hot-card">
+						<span class="hot-badge">Popular</span>
+						<h3>Only Head Clash Squad 1V1</h3>
+						<p>
+							Competitive headshot-focused matches are gaining massive popularity among skilled players.
+						</p>
+					</div>
+					
+					<div class="hot-card">
+						<span class="hot-badge">Esports Favorite</span>
+						<h3>4V4 Clash Squad</h3>
+						<p>
+							Team-based Clash Squad tournaments are currently dominating the competitive esports scene.
+						</p>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</section>
+		
+		
+		<!-- MAJOR PLAYER DEMANDS -->
+		<section class="hot-section">
+			
+			<div class="demand-box">
+				
+				<div class="hot-header">
+					<i class="fa-solid fa-star"></i>
+					<h2>Major Player Demands</h2>
+				</div>
+				
+				<div class="demand-content">
+					
+					<div class="demand-item">
+						<i class="fa-solid fa-check"></i>
+						<p>
+							Players prefer keeping <strong>Battle Royale</strong> and <strong>FF Survival</strong> tournaments in standard competitive format.
+						</p>
+					</div>
+					
+					<div class="demand-item">
+						<i class="fa-solid fa-check"></i>
+						<p>
+							High demand for <strong>Lone Wolf 1V1</strong> and <strong>Lone Wolf 2V2</strong> tournaments with maximum round settings.
+						</p>
+					</div>
+					
+					<div class="demand-item">
+						<i class="fa-solid fa-check"></i>
+						<p>
+							Competitive players are requesting <strong>Only Head 1V1 CS</strong>, <strong>Only Head 2V2</strong>, and <strong>4V4 Clash Squad</strong> rooms with unlimited ammo and throwables enabled.
+						</p>
+					</div>
+					
+					<div class="demand-item">
+						<i class="fa-solid fa-check"></i>
+						<p>
+							The community is highly interested in professional-level custom room settings for better gameplay experience.
+						</p>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</section>
+		
+		
+	</main>
+	
+	
+	<!-- FOOTER -->
+	
+	<footer class="site-footer">
+		
+		<div class="footer-top">
+			
+			<div class="footer-brand">
+				
+				<img src="assets/logo.png" alt="ArenaForge Logo" class="footer-logo">
+				
+				<h2>ArenaForge</h2>
+				
+				<p>
+					India's competitive Free Fire tournament platform.
+					Secure matches, real players & smooth gameplay.
+				</p>
+				
+			</div>
+			
+			
+			<div class="footer-links">
+				
+				<h3>Quick Links</h3>
+				
+				<a href="index.html">Home</a>
+				
+				<a href="rules.html">Rules</a>
+				
+				<a href="#tournamentModes">Tournaments</a>
+				
+				<a href="pages/support/support.html">Contact</a>
+				
+			</div>
+			
+			
+			<div class="footer-links">
+				
+				<h3>Community</h3>
+				
+				<a href="#">Discord</a>
+				
+				<a href="#">Telegram</a>
+				
+				<a href="#">Instagram</a>
+				
+				<a href="#">YouTube</a>
+				
+			</div>
+			
+		</div>
+		
+		
+		<!-- SOCIALS -->
+		
+		<div class="footer-socials">
+			
+			<a href="#">
+				<i class="fab fa-instagram"></i>
+			</a>
+			
+			<a href="#">
+				<i class="fab fa-facebook-f"></i>
+			</a>
+			
+			<a href="#">
+				<i class="fab fa-twitter"></i>
+			</a>
+			
+			<a href="#">
+				<i class="fab fa-discord"></i>
+			</a>
+			
+			<a href="#">
+				<i class="fab fa-youtube"></i>
+			</a>
+			
+		</div>
+		
+		
+		<!-- PAYMENTS -->
+		
+		<div class="footer-payments">
+			
+			<p>
+				Trusted Payment Partners
+			</p>
+			
+			<div class="payment-logos">
+				
+				<img src="assets/upi.png" alt="UPI">
+				
+				<img src="assets/gpay.png" alt="Google Pay">
+				
+				<img src="assets/paytm.png" alt="Paytm">
+				
+				<img src="assets/phonepe.png" alt="PhonePe">
+				
+				<img src="assets/mastercard.png" alt="MasterCard">
+				
+			</div>
+			
+		</div>
+		
+		
+		<!-- BOTTOM -->
+		
+		<div class="footer-bottom">
+			
+			<p>
+				© 2026 ArenaForge. All Rights Reserved.
+			</p>
+			
+			<small>
+				Secure payments powered by trusted gateways.
+			</small>
+			
+		</div>
+		
+	</footer>
+	
+	
+	<!-- TABBAR -->
+	
+	<div class="tabbar">
+		
+		<a href="pages/more/more.html" class="tab-item">
+		
+			<i class="fa-solid fa-table-cells-large"></i>
+			
+			<span>More</span>
+			
+		</a>
+		
+		
+		<a href="index.html" class="tab-item active">
+		
+			<i class="fa-solid fa-gamepad"></i>
+			
+			<span>Play</span>
+			
+		</a>
+		
+		
+		<a href="pages/support/support.html" class="tab-item">
+		
+			<i class="far fa-question-circle"></i>
+			
+			<span>Support</span>
+			
+		</a>
+		
+	</div>
+	<script src="data/announcement.js"></script>
+	
+	<script src="script.js"></script>
+</body>
+
+</html>
