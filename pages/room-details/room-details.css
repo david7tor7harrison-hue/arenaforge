@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: Poppins, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 24px;
+  padding: 28px;
+}
+
+.card h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #888;
+  margin-bottom: 25px;
+}
+
+#registrationId {
+  width: 100%;
+  height: 58px;
+  background: #0f0f0f;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 0 16px;
+  color: white;
+  font-size: 15px;
+}
+
+#registrationId:focus {
+  outline: none;
+  border-color: #00ff99;
+}
+
+#gameUid {
+  width: 100%;
+  height: 58px;
+  background: #0f0f0f;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 0 16px;
+  color: white;
+  font-size: 15px;
+}
+
+#gameUid:focus {
+  outline: none;
+  border-color: #00ff99;
+}
+
+#getRoomBtn {
+  width: 100%;
+  height: 58px;
+  margin-top: 16px;
+  border: none;
+  border-radius: 16px;
+  background: #00ff99;
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 25px;
+}
+
+.status-card {
+  background: #0f0f0f;
+  border: 1px solid #222;
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.status-title {
+  color: #00ff99;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.room-box {
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 12px;
+}
+
+.room-box strong {
+  display: block;
+  color: #00ff99;
+  margin-bottom: 6px;
+}
+
+.countdown {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.error {
+  color: #ff4d4d;
+}
+
+.success {
+  color: #00ff99;
+}
+
+.room-box button {
+  
+  margin-top: 10px;
+  
+  width: 100%;
+  
+  height: 42px;
+  
+  border: none;
+  
+  border-radius: 10px;
+  
+  cursor: pointer;
+  
+  font-weight: 600;
+  
+}
+
+.notes-card {
+  
+  margin-top: 20px;
+  
+  background: #111;
+  
+  border: 1px solid #222;
+  
+  border-radius: 16px;
+  
+  padding: 16px;
+  
+}
+
+.notes-card h3 {
+  
+  margin-bottom: 10px;
+  
+  color: #00ff99;
+  
+}
+
+.notes-card p {
+  
+  color: #aaa;
+  
+  line-height: 1.6;
+  
+  font-size: 14px;
+  
+}

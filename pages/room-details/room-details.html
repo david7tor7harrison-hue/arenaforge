@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+	<meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>
+		Room Details
+	</title>
+	
+	<link rel="stylesheet" href="room-details.css">
+	
+</head>
+
+<body>
+	
+	<main class="container">
+		
+		<div class="card">
+			
+			<h1>
+				Room Details
+			</h1>
+			
+			<p class="subtitle">
+				Enter your Registration ID
+			</p>
+			
+			<input type="text" id="registrationId" placeholder="AF1748601234">
+			<input type="text" id="gameUid" class="input-field" placeholder="Enter Game UID">
+			
+			<button id="getRoomBtn">
+				Get Room Details
+			</button>
+			
+			<div id="result" class="result">
+			</div>
+			
+		</div>
+		<div class="notes-card">
+			
+			<h3>
+				Important Note
+			</h3>
+			
+			<p>
+				
+				For Solo tournaments, enter your registered Game UID.
+				
+				For Duo and Squad tournaments, only the Team Captain should access Room Details.
+				
+				Use the UID of Player 1 (Captain) that was entered first during registration.
+				
+				Room details will become available 10 minutes before match start.
+				
+			</p>
+			
+		</div>
+	</main>
+	
+	<script src="room-details.js"></script>
+	
+</body>
+
+</html>
