@@ -4,6 +4,9 @@ const TOURNAMENT_API =
 const REGISTRATION_API =
 "https://script.google.com/macros/s/AKfycbzatK87dqV6dsXDY391abD9URsRcvREAP7TdXvXUIijumsFE1bIXn8EGLP3vhx5tuaCfg/exec";
 
+const PLAYER_API =
+"https://script.google.com/macros/s/AKfycbx-pLKKyY8tBSQa9gX0Vq6S-sVtvFzUbw92xrSfG51YMZ5dmO1gTxP-oBoSgHWma-SO/exec";
+
 const params =
 new URLSearchParams(
 window.location.search
@@ -42,12 +45,12 @@ String(id)
 
 if (!tournamentData) {
 
-document  
-  .getElementById(  
-    "tournamentInfo"  
-  )  
-  .innerHTML =  
-  "Invalid Tournament";  
+document
+  .getElementById(
+    "tournamentInfo"
+  )
+  .innerHTML =
+  "Invalid Tournament";
 
 return;
 
@@ -70,8 +73,8 @@ mode === "duo" ||
 mode === "2v2"
 ) {
 
-totalFee =  
-  entryFee * 2;  
+totalFee =
+  entryFee * 2;
 
 teamSize = 2;
 
@@ -82,8 +85,8 @@ mode === "squad" ||
 mode === "4v4"
 ) {
 
-totalFee =  
-  entryFee * 4;  
+totalFee =
+  entryFee * 4;
 
 teamSize = 4;
 
@@ -91,8 +94,8 @@ teamSize = 4;
 
 else {
 
-totalFee =  
-  entryFee;  
+totalFee =
+  entryFee;
 
 teamSize = 1;
 
@@ -104,21 +107,21 @@ document
 )
 .innerHTML = `
 
-<h2>  
-${tournamentData.title}  
-</h2>  <p>  
-Mode:  
-${tournamentData.mode}  
-</p>  <p>  
-Entry Fee:  
-₹${totalFee}  
-</p>  <p>  
-Prize:  
-${tournamentData.prize}  
-</p>  <p>  
-Map:  
-${tournamentData.map}  
-</p>  `;
+<h2>
+${tournamentData.title}
+</h2><p>
+Mode:
+${tournamentData.mode}
+</p><p>
+Entry Fee:
+₹${totalFee}
+</p><p>
+Prize:
+${tournamentData.prize}
+</p><p>
+Map:
+${tournamentData.map}
+</p>`;
 
 }
 
@@ -139,109 +142,112 @@ e.preventDefault();
 
 try {
 
-if (  
-  !tournamentData  
-) {  
-
-  alert(  
-    "Tournament Data Not Loaded"  
-  );  
-
-  return;  
-
-}  
-
-const data = {  
-
-  playerKey:  
-    document  
-      .getElementById(  
-        "playerKey"  
-      )  
-      .value  
-      .trim(),  
-
-  utr:  
-    document  
-      .getElementById(  
-        "utr"  
-      )  
-      .value  
-      .trim(),  
-
-  tournamentId:  
-    tournamentData.id,  
-
-  tournamentTitle:  
-    tournamentData.title,  
-
-  category:  
-    tournamentData.category,  
-
-  type:  
-    tournamentData.type,  
-
-  mode:  
-    tournamentData.mode,  
-
-  amount:  
-    totalFee,  
-
-  teamSize:  
-    teamSize  
-
-};  
-
-const validationUrl =
-
-"https://script.google.com/macros/s/AKfycbx-pLKKyY8tBSQa9gX0Vq6S-sVtvFzUbw92xrSfG51YMZ5dmO1gTxP-oBoSgHWma-SO/exec?action=validate&playerKey=${encodeURIComponent( data.playerKey )}&mode=${encodeURIComponent( data.mode )}";
-
-const validationResponse =
-await fetch(
-validationUrl
-);
-
-const validationResult =
-await validationResponse.json();
-
 if (
-!validationResult.success
+  !tournamentData
 ) {
 
-alert(
-validationResult.error
-);
+  alert(
+    "Tournament Data Not Loaded"
+  );
 
-return;
+  return;
 
 }
-  
-await fetch(  
-  REGISTRATION_API,  
-  {  
-    method:  
-      "POST",  
 
-    mode:  
-      "no-cors",  
+const data = {
 
-    headers: {  
-      "Content-Type":  
-        "application/json"  
-    },  
+  playerKey:
+    document
+      .getElementById(
+        "playerKey"
+      )
+      .value
+      .trim(),
 
-    body:  
-      JSON.stringify(  
-        data  
-      )  
-  }  
-);  
+  utr:
+    document
+      .getElementById(
+        "utr"
+      )
+      .value
+      .trim(),
 
-window.location.href =  
-  `../registration-success/registration-success.html?tournament=${encodeURIComponent(  
-    tournamentData.title  
-  )}&id=${encodeURIComponent(  
-    tournamentData.id  
+  tournamentId:
+    tournamentData.id,
+
+  tournamentTitle:
+    tournamentData.title,
+
+  category:
+    tournamentData.category,
+
+  type:
+    tournamentData.type,
+
+  mode:
+    tournamentData.mode,
+
+  amount:
+    totalFee,
+
+  teamSize:
+    teamSize
+
+};
+
+const validationUrl =
+  `${PLAYER_API}?action=validate&playerKey=${encodeURIComponent(
+    data.playerKey
+  )}&mode=${encodeURIComponent(
+    data.mode
+  )}`;
+
+const validationResponse =
+  await fetch(
+    validationUrl
+  );
+
+const validationResult =
+  await validationResponse.json();
+
+if (
+  !validationResult.success
+) {
+
+  alert(
+    validationResult.error
+  );
+
+  return;
+
+}
+
+await fetch(
+  REGISTRATION_API,
+  {
+    method:
+      "POST",
+
+    mode:
+      "no-cors",
+
+    headers: {
+      "Content-Type":
+        "application/json"
+    },
+
+    body:
+      JSON.stringify(
+        data
+      )
+  }
+);
+
+window.location.href =
+  `../registration-success/registration-success.html?tournament=${encodeURIComponent(
+    tournamentData.title
+  )}&id=${encodeURIComponent(
+    tournamentData.id
   )}`;
 
 }
@@ -250,12 +256,12 @@ catch (
 error
 ) {
 
-console.error(  
-  error  
-);  
+console.error(
+  error
+);
 
-alert(  
-  "Registration Failed"  
+alert(
+  "Registration Failed"
 );
 
 }
