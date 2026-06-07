@@ -192,6 +192,30 @@ const data = {
 
 };  
 
+const validationUrl =
+
+"https://script.google.com/macros/s/AKfycbx-pLKKyY8tBSQa9gX0Vq6S-sVtvFzUbw92xrSfG51YMZ5dmO1gTxP-oBoSgHWma-SO/exec?action=validate&playerKey=${encodeURIComponent( data.playerKey )}&mode=${encodeURIComponent( data.mode )}";
+
+const validationResponse =
+await fetch(
+validationUrl
+);
+
+const validationResult =
+await validationResponse.json();
+
+if (
+!validationResult.success
+) {
+
+alert(
+validationResult.error
+);
+
+return;
+
+}
+  
 await fetch(  
   REGISTRATION_API,  
   {  
