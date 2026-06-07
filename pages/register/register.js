@@ -195,19 +195,16 @@ async function submitForm(
     
     const response =
       await fetch(
-        REGISTRATION_API,
-        {
-          method: "POST",
-          
-          headers: {
-            "Content-Type": "application/json"
-          },
-          
-          body: JSON.stringify(
-            data
-          )
-        }
-      );
+  REGISTRATION_API,
+  {
+    method:"POST",
+    mode:"no-cors",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify(data)
+  }
+);
     
     const result =
       await response.json();
