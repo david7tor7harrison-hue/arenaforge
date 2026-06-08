@@ -146,10 +146,11 @@ if (
   !tournamentData
 ) {
 
-  alert(
-    "Tournament Data Not Loaded"
-  );
-
+  showPopup(
+  "Error",
+  "Tournament Data Not Loaded"
+);
+  
   return;
 
 }
@@ -214,10 +215,10 @@ if (
   !validationResult.success
 ) {
 
-  alert(
-    validationResult.error
-  );
-
+  showPopup(
+  "Registration Error",
+  validationResult.error
+);
   return;
 
 }
@@ -260,10 +261,50 @@ console.error(
   error
 );
 
-alert(
+showPopup(
+  "Error",
   "Registration Failed"
 );
-
+  
 }
 
 }
+
+function showPopup(
+title,
+message
+) {
+
+document
+.getElementById(
+"popupTitle"
+)
+.innerText =
+title;
+
+document
+.getElementById(
+"popupMessage"
+)
+.innerText =
+message;
+
+document
+.getElementById(
+"popupOverlay"
+)
+.style.display =
+"flex";
+
+}
+
+function closePopup() {
+
+document
+.getElementById(
+"popupOverlay"
+)
+.style.display =
+"none";
+
+   }
