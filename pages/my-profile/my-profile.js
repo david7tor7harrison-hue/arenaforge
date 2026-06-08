@@ -43,12 +43,30 @@ return;
 
 }
 
+
+
+  
+const loginUrl =
+PLAYER_API +
+"?action=login&playerKey=" +
+encodeURIComponent(
+  playerKey
+) +
+"&password=" +
+encodeURIComponent(
+  password
+);
+
+console.log(
+  loginUrl
+);
+
 const response =
 await fetch(
-
-"${PLAYER_API}?action=login&playerKey=${encodeURIComponent( playerKey )}&password=${encodeURIComponent( password )}"
-
+  loginUrl
 );
+
+  
 
 const result =
 await response.json();
