@@ -200,8 +200,14 @@ const validationUrl =
   `${PLAYER_API}?action=validate&playerKey=${encodeURIComponent(
     data.playerKey
   )}&mode=${encodeURIComponent(
-    data.mode
-  )}`;
+data.mode
+)}
+&tournamentId=${encodeURIComponent(
+data.tournamentId
+)}
+&utr=${encodeURIComponent(
+data.utr
+)}`;
 
 const validationResponse =
   await fetch(
