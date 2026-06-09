@@ -135,21 +135,31 @@ document
 )
 .value =
 result.status;
-  
+
 document
 .getElementById(
 "createdAt"
 )
 .value =
-result.createdAt;
+new Date(
+result.createdAt
+)
+.toLocaleString(
+"en-IN"
+);
 
 document
 .getElementById(
 "lastUpdated"
 )
 .value =
-result.lastUpdated;
-  
+new Date(
+result.lastUpdated
+)
+.toLocaleString(
+"en-IN"
+);
+
 document
 .getElementById(
 "upi"
