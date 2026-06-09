@@ -44,10 +44,11 @@ if (
 !password
 ) {
 
-alert(
-"Enter Player Key and Password"
+showPopup(
+  "Error",
+  "Enter Player Key and Password"
 );
-
+  
 return;
 
 }
@@ -84,10 +85,11 @@ if (
 !result.success
 ) {
 
-alert(
-result.error
+showPopup(
+  "Error",
+  result.error
 );
-
+  
 return;
 
 }
@@ -190,10 +192,11 @@ console.error(
 error
 );
 
-alert(
-"Login Failed"
+showPopup(
+  "Error",
+  "Login Failed"
 );
-
+  
 }
 
 }
@@ -300,10 +303,11 @@ if (
 
 ) {
 
-alert(
-"Complete Duo Team Or Leave It Empty"
+showPopup(
+  "Validation Error",
+  "Complete Duo Team Or Leave It Empty"
 );
-
+  
 return;
 
 }
@@ -333,10 +337,11 @@ squadFilled < 4
 
 ) {
 
-alert(
-"Complete Squad Team Or Leave It Empty"
+showPopup(
+  "Validation Error",
+  "Complete Squad Team Or Leave It Empty"
 );
-
+  
 return;
 
 }
@@ -367,10 +372,11 @@ hasPasswordData &&
 
 ) {
 
-alert(
-"Fill All Password Fields"
+showPopup(
+  "Validation Error",
+  "Fill All Password Fields"
 );
-
+  
 return;
 
 }
@@ -383,10 +389,11 @@ newPassword !== confirmPassword
 
 ) {
 
-alert(
-"Passwords Do Not Match"
+showPopup(
+  "Validation Error",
+  "Passwords Do Not Match"
 );
-
+  
 return;
 
 }
@@ -483,10 +490,11 @@ return;
 
 }
 
-alert(
-"Profile Updated Successfully"
+showPopup(
+  "Success",
+  "Profile Updated Successfully"
 );
-
+  
 document
 .getElementById(
 "currentPassword"
@@ -513,10 +521,50 @@ console.error(
 error
 );
 
-alert(
-"Profile Update Failed"
+showPopup(
+  "Error",
+  "Profile Update Failed"
 );
-
+  
 }
 
 }
+
+function showPopup(
+title,
+message
+) {
+
+document
+.getElementById(
+"popupTitle"
+)
+.innerText =
+title;
+
+document
+.getElementById(
+"popupMessage"
+)
+.innerText =
+message;
+
+document
+.getElementById(
+"popupOverlay"
+)
+.style.display =
+"flex";
+
+}
+
+function closePopup() {
+
+document
+.getElementById(
+"popupOverlay"
+)
+.style.display =
+"none";
+
+   }
