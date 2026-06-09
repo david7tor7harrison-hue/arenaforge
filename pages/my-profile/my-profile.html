@@ -2,17 +2,16 @@
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>
-ArenaForge Profile Login
-</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
+	
+	<meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>
+		ArenaForge Profile Login
+	</title>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	
@@ -22,14 +21,13 @@ ArenaForge Profile Login
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	
-<link rel="stylesheet"
-href="my-profile.css">
-
+	<link rel="stylesheet" href="my-profile.css">
+	
 </head>
 
 <body>
-
-<nav class="navbar">
+	
+	<nav class="navbar">
 		
 		<div class="nav-left">
 			
@@ -56,232 +54,178 @@ href="my-profile.css">
 		</div>
 		
 	</nav>
-
-	
-<div class="container">
-
-<div class="login-box"
-id="loginBox">
-
-<h1>
-⚔ ArenaForge
-</h1><h2>
-Player Profile
-</h2><p class="login-subtitle">Access your account,
-manage teams and tournament identity.
-
-</p>
-<input
-type="text"
-id="playerKey"
-placeholder="Player Key">
-
-<input
-type="password"
-id="password"
-placeholder="Password">
-
-<button
-id="loginBtn">
-Login
-</button>
-
-<div class="create-profile-box"><p class="create-profile-title">
-No Player Key Yet?
-</p><p class="create-profile-text">
-Create your ArenaForge profile
-in under 2 minutes.
-</p><a
-href="../create-profile/create-profile.html"
-class="create-profile-btn">
-
-Create Profile
-
-</a></div>
-	
-</div>
-
-<div
-class="profile-box"
-id="profileBox"
-style="display:none;">
-
-<h1>
-My Profile
-</h1>
-
-<div class="section">
-
-<h3>
-Account Information
-</h3>
-
-<label>
-Player Key
-</label>
-
-<input
-type="text"
-id="profilePlayerKey"
-readonly>
-
-<label>
-Email
-</label>
-
-<input
-type="text"
-id="profileEmail"
-readonly>
-  
-<label>
-Solo UID
-</label>
-
-<input
-type="text"
-id="soloUid"
-readonly>
-
-<label>
-Status
-</label>
-
-<input
-type="text"
-id="profileStatus"
-readonly>
-
-<label>
-Created At
-</label>
-
-<input
-type="text"
-id="createdAt"
-readonly>
-
-<label>
-Last Updated
-</label>
-
-<input
-type="text"
-id="lastUpdated"
-readonly>
-
-</div>
-
-<div class="section">
-
-<h3>
-Payment Information
-</h3>
-
-<label>
-UPI ID
-</label>
-
-<input
-type="text"
-id="upi">
-
-</div>
-
-<div class="section">
-
-<h3>
-Duo Team
-</h3>
-
-<input
-type="text"
-id="duoP1Uid"
-placeholder="Duo Player 1 UID">
-
-<input
-type="text"
-id="duoP2Uid"
-placeholder="Duo Player 2 UID">
-
-</div>
-
-<div class="section">
-
-<h3>
-Squad Team
-</h3>
-
-<input
-type="text"
-id="squadP1Uid"
-placeholder="Squad Player 1 UID">
-
-<input
-type="text"
-id="squadP2Uid"
-placeholder="Squad Player 2 UID">
-
-<input
-type="text"
-id="squadP3Uid"
-placeholder="Squad Player 3 UID">
-
-<input
-type="text"
-id="squadP4Uid"
-placeholder="Squad Player 4 UID">
-
-</div>
-
-<div class="section">
-
-<h3>
-Change Password
-</h3>
-
-<input
-type="password"
-id="currentPassword"
-placeholder="Current Password">
-
-<input
-type="password"
-id="newPassword"
-placeholder="New Password">
-
-<input
-type="password"
-id="confirmPassword"
-placeholder="Confirm Password">
-
-</div>
-
-<button
-id="saveBtn">
-Save Profile
-</button>
-
-</div>
-
-</div>
-
-  <div id="popupOverlay" class="popup-overlay">
-	<div class="popup-box">
-		<h3 id="popupTitle">
-			Alert
-		</h3>
+	<main>
 		
-		<p id="popupMessage">
-			Message
-		</p>
+		<div class="container">
+			
+			<div class="login-box" id="loginBox">
+				
+				<h1>
+					⚔ ArenaForge
+				</h1>
+				<h2>
+					Player Profile
+				</h2>
+				<p class="login-subtitle">Access your account,
+					manage teams and tournament identity.
+					
+				</p>
+				<input type="text" id="playerKey" placeholder="Player Key">
+				
+				<input type="password" id="password" placeholder="Password">
+				
+				<button id="loginBtn">
+					Login
+				</button>
+				
+				<div class="create-profile-box">
+					<p class="create-profile-title">
+						No Player Key Yet?
+					</p>
+					<p class="create-profile-text">
+						Create your ArenaForge profile
+						in under 2 minutes.
+					</p><a href="../create-profile/create-profile.html" class="create-profile-btn">
+					
+						Create Profile
+						
+					</a>
+				</div>
+				
+			</div>
+			
+			<div class="profile-box" id="profileBox" style="display:none;">
+				
+				<h1>
+					My Profile
+				</h1>
+				
+				<div class="section">
+					
+					<h3>
+						Account Information
+					</h3>
+					
+					<label>
+						Player Key
+					</label>
+					
+					<input type="text" id="profilePlayerKey" readonly>
+					
+					<label>
+						Email
+					</label>
+					
+					<input type="text" id="profileEmail" readonly>
+					
+					<label>
+						Solo UID
+					</label>
+					
+					<input type="text" id="soloUid" readonly>
+					
+					<label>
+						Status
+					</label>
+					
+					<input type="text" id="profileStatus" readonly>
+					
+					<label>
+						Created At
+					</label>
+					
+					<input type="text" id="createdAt" readonly>
+					
+					<label>
+						Last Updated
+					</label>
+					
+					<input type="text" id="lastUpdated" readonly>
+					
+				</div>
+				
+				<div class="section">
+					
+					<h3>
+						Payment Information
+					</h3>
+					
+					<label>
+						UPI ID
+					</label>
+					
+					<input type="text" id="upi">
+					
+				</div>
+				
+				<div class="section">
+					
+					<h3>
+						Duo Team
+					</h3>
+					
+					<input type="text" id="duoP1Uid" placeholder="Duo Player 1 UID">
+					
+					<input type="text" id="duoP2Uid" placeholder="Duo Player 2 UID">
+					
+				</div>
+				
+				<div class="section">
+					
+					<h3>
+						Squad Team
+					</h3>
+					
+					<input type="text" id="squadP1Uid" placeholder="Squad Player 1 UID">
+					
+					<input type="text" id="squadP2Uid" placeholder="Squad Player 2 UID">
+					
+					<input type="text" id="squadP3Uid" placeholder="Squad Player 3 UID">
+					
+					<input type="text" id="squadP4Uid" placeholder="Squad Player 4 UID">
+					
+				</div>
+				
+				<div class="section">
+					
+					<h3>
+						Change Password
+					</h3>
+					
+					<input type="password" id="currentPassword" placeholder="Current Password">
+					
+					<input type="password" id="newPassword" placeholder="New Password">
+					
+					<input type="password" id="confirmPassword" placeholder="Confirm Password">
+					
+				</div>
+				
+				<button id="saveBtn">
+					Save Profile
+				</button>
+				
+			</div>
+			
+		</div>
 		
-		<button id="popupBtn" onclick="closePopup()">
-			OK
-		</button>
-		
-	</div>
-</div>
+		<div id="popupOverlay" class="popup-overlay">
+			<div class="popup-box">
+				<h3 id="popupTitle">
+					Alert
+				</h3>
+				
+				<p id="popupMessage">
+					Message
+				</p>
+				
+				<button id="popupBtn" onclick="closePopup()">
+					OK
+				</button>
+				
+			</div>
+		</div>
+		</div>
+	</main>
 	<footer class="site-footer">
 		
 		<div class="footer-top">
@@ -389,7 +333,7 @@ Save Profile
 		</div>
 		
 	</footer>
-
+	
 	
 	<div class="tabbar">
 		
@@ -420,10 +364,9 @@ Save Profile
 		</a>
 		
 	</div>
-<script
-src="my-profile.js">
-</script>
-
+	<script src="my-profile.js">
+	</script>
+	
 </body>
 
 </html>
