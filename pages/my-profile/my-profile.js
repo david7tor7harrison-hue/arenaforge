@@ -198,8 +198,6 @@ alert(
 
 }
 
-
-
 async function saveProfile() {
 
 try {
@@ -208,6 +206,62 @@ const playerKey =
 document
 .getElementById(
 "profilePlayerKey"
+)
+.value
+.trim();
+
+const upi =
+document
+.getElementById(
+"upi"
+)
+.value
+.trim();
+
+const duoP1Uid =
+document
+.getElementById(
+"duoP1Uid"
+)
+.value
+.trim();
+
+const duoP2Uid =
+document
+.getElementById(
+"duoP2Uid"
+)
+.value
+.trim();
+
+const squadP1Uid =
+document
+.getElementById(
+"squadP1Uid"
+)
+.value
+.trim();
+
+const squadP2Uid =
+document
+.getElementById(
+"squadP2Uid"
+)
+.value
+.trim();
+
+const squadP3Uid =
+document
+.getElementById(
+"squadP3Uid"
+)
+.value
+.trim();
+
+const squadP4Uid =
+document
+.getElementById(
+"squadP4Uid"
 )
 .value
 .trim();
@@ -236,14 +290,97 @@ document
 .value
 .trim();
 
-if (
-newPassword ||
-confirmPassword
-) {
+/* Duo Validation */
 
 if (
-newPassword !==
-confirmPassword
+
+(duoP1Uid && !duoP2Uid) ||
+
+(!duoP1Uid && duoP2Uid)
+
+) {
+
+alert(
+"Complete Duo Team Or Leave It Empty"
+);
+
+return;
+
+}
+
+/* Squad Validation */
+
+const squadFilled =
+
+[
+squadP1Uid,
+squadP2Uid,
+squadP3Uid,
+squadP4Uid
+]
+
+.filter(
+x => x
+)
+
+.length;
+
+if (
+
+squadFilled > 0 &&
+
+squadFilled < 4
+
+) {
+
+alert(
+"Complete Squad Team Or Leave It Empty"
+);
+
+return;
+
+}
+
+/* Password Validation */
+
+const hasPasswordData =
+
+currentPassword ||
+
+newPassword ||
+
+confirmPassword;
+
+if (
+
+hasPasswordData &&
+
+(
+
+!currentPassword ||
+
+!newPassword ||
+
+!confirmPassword
+
+)
+
+) {
+
+alert(
+"Fill All Password Fields"
+);
+
+return;
+
+}
+
+if (
+
+newPassword &&
+
+newPassword !== confirmPassword
+
 ) {
 
 alert(
@@ -254,104 +391,84 @@ return;
 
 }
 
-}
-
 const saveUrl =
+
 PLAYER_API +
 
 "?action=saveprofile" +
 
 "&playerKey=" +
+
 encodeURIComponent(
 playerKey
 ) +
 
 "&currentPassword=" +
+
 encodeURIComponent(
 currentPassword
 ) +
 
 "&newPassword=" +
+
 encodeURIComponent(
 newPassword
 ) +
 
 "&upi=" +
+
 encodeURIComponent(
-document
-.getElementById(
-"upi"
-)
-.value
-.trim()
+upi
 ) +
 
 "&duoP1Uid=" +
+
 encodeURIComponent(
-document
-.getElementById(
-"duoP1Uid"
-)
-.value
-.trim()
+duoP1Uid
 ) +
 
 "&duoP2Uid=" +
+
 encodeURIComponent(
-document
-.getElementById(
-"duoP2Uid"
-)
-.value
-.trim()
+duoP2Uid
 ) +
 
 "&squadP1Uid=" +
+
 encodeURIComponent(
-document
-.getElementById(
-"squadP1Uid"
-)
-.value
-.trim()
+squadP1Uid
 ) +
 
 "&squadP2Uid=" +
+
 encodeURIComponent(
-document
-.getElementById(
-"squadP2Uid"
-)
-.value
-.trim()
+squadP2Uid
 ) +
 
 "&squadP3Uid=" +
+
 encodeURIComponent(
-document
-.getElementById(
-"squadP3Uid"
-)
-.value
-.trim()
+squadP3Uid
 ) +
 
 "&squadP4Uid=" +
+
 encodeURIComponent(
-document
-.getElementById(
-"squadP4Uid"
-)
-.value
-.trim()
+squadP4Uid
+);
+
+console.log(
+saveUrl
 );
 
 const response =
+
 await fetch(
 saveUrl
 );
 
 const result =
+
 await response.json();
 
 if (
@@ -374,24 +491,22 @@ document
 .getElementById(
 "currentPassword"
 )
-.value =
-"";
+.value = "";
 
 document
 .getElementById(
 "newPassword"
 )
-.value =
-"";
+.value = "";
 
 document
 .getElementById(
 "confirmPassword"
 )
-.value =
-"";
+.value = "";
 
 }
+
 catch(error){
 
 console.error(
@@ -405,4 +520,3 @@ alert(
 }
 
 }
-  
