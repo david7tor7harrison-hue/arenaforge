@@ -10,6 +10,15 @@ document
 loginPlayer
 );
 
+document
+.getElementById(
+"saveBtn"
+)
+.addEventListener(
+"click",
+saveProfile
+);
+
 async function loginPlayer() {
 
 try {
@@ -188,3 +197,212 @@ alert(
 }
 
 }
+
+
+
+async function saveProfile() {
+
+try {
+
+const playerKey =
+document
+.getElementById(
+"profilePlayerKey"
+)
+.value
+.trim();
+
+const currentPassword =
+document
+.getElementById(
+"currentPassword"
+)
+.value
+.trim();
+
+const newPassword =
+document
+.getElementById(
+"newPassword"
+)
+.value
+.trim();
+
+const confirmPassword =
+document
+.getElementById(
+"confirmPassword"
+)
+.value
+.trim();
+
+if (
+newPassword ||
+confirmPassword
+) {
+
+if (
+newPassword !==
+confirmPassword
+) {
+
+alert(
+"Passwords Do Not Match"
+);
+
+return;
+
+}
+
+}
+
+const saveUrl =
+PLAYER_API +
+
+"?action=saveprofile" +
+
+"&playerKey=" +
+encodeURIComponent(
+playerKey
+) +
+
+"&currentPassword=" +
+encodeURIComponent(
+currentPassword
+) +
+
+"&newPassword=" +
+encodeURIComponent(
+newPassword
+) +
+
+"&upi=" +
+encodeURIComponent(
+document
+.getElementById(
+"upi"
+)
+.value
+.trim()
+) +
+
+"&duoP1Uid=" +
+encodeURIComponent(
+document
+.getElementById(
+"duoP1Uid"
+)
+.value
+.trim()
+) +
+
+"&duoP2Uid=" +
+encodeURIComponent(
+document
+.getElementById(
+"duoP2Uid"
+)
+.value
+.trim()
+) +
+
+"&squadP1Uid=" +
+encodeURIComponent(
+document
+.getElementById(
+"squadP1Uid"
+)
+.value
+.trim()
+) +
+
+"&squadP2Uid=" +
+encodeURIComponent(
+document
+.getElementById(
+"squadP2Uid"
+)
+.value
+.trim()
+) +
+
+"&squadP3Uid=" +
+encodeURIComponent(
+document
+.getElementById(
+"squadP3Uid"
+)
+.value
+.trim()
+) +
+
+"&squadP4Uid=" +
+encodeURIComponent(
+document
+.getElementById(
+"squadP4Uid"
+)
+.value
+.trim()
+);
+
+const response =
+await fetch(
+saveUrl
+);
+
+const result =
+await response.json();
+
+if (
+!result.success
+) {
+
+alert(
+result.error
+);
+
+return;
+
+}
+
+alert(
+"Profile Updated Successfully"
+);
+
+document
+.getElementById(
+"currentPassword"
+)
+.value =
+"";
+
+document
+.getElementById(
+"newPassword"
+)
+.value =
+"";
+
+document
+.getElementById(
+"confirmPassword"
+)
+.value =
+"";
+
+}
+catch(error){
+
+console.error(
+error
+);
+
+alert(
+"Profile Update Failed"
+);
+
+}
+
+}
+  
