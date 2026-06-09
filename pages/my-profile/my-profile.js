@@ -135,7 +135,21 @@ document
 )
 .value =
 result.status;
+  
+document
+.getElementById(
+"createdAt"
+)
+.value =
+result.createdAt;
 
+document
+.getElementById(
+"lastUpdated"
+)
+.value =
+result.lastUpdated;
+  
 document
 .getElementById(
 "upi"
@@ -493,6 +507,16 @@ return;
 showPopup(
   "Success",
   "Profile Updated Successfully"
+);
+  
+document
+.getElementById(
+"lastUpdated"
+)
+.value =
+new Date()
+.toLocaleString(
+"en-IN"
 );
   
 document
