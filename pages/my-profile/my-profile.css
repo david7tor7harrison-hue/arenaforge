@@ -105,3 +105,93 @@ button:hover {
 	}
 	
 }
+
+.popup-overlay {
+
+position: fixed;
+
+top: 0;
+left: 0;
+
+width: 100%;
+height: 100%;
+
+background:
+rgba(
+0,
+0,
+0,
+0.75
+);
+
+backdrop-filter:
+blur(6px);
+
+display: none;
+
+justify-content: center;
+
+align-items: center;
+
+z-index: 9999;
+
+}
+
+.popup-box {
+
+width: 90%;
+
+max-width: 350px;
+
+background:
+#0f0f0f;
+
+border:
+1px solid #00ff99;
+
+border-radius: 16px;
+
+padding: 25px;
+
+text-align: center;
+
+}
+
+.popup-box h3 {
+
+color:
+#00ff99;
+
+margin-bottom: 15px;
+
+}
+
+.popup-box p {
+
+color:
+white;
+
+line-height: 1.5;
+
+}
+
+.popup-box button {
+
+margin-top: 20px;
+
+width: 100%;
+
+padding: 12px;
+
+border: none;
+
+border-radius: 10px;
+
+background:
+#00ff99;
+
+font-weight: bold;
+
+cursor: pointer;
+
+}
