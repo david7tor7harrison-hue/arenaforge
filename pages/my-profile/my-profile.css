@@ -4,6 +4,12 @@ padding: 0;
 box-sizing: border-box;
 }
 
+.main-container{
+
+  padding:
+  90px 18px 110px;
+}
+
 body {
 background:
 radial-gradient(
