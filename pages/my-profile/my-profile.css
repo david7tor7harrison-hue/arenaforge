@@ -651,37 +651,37 @@ text-align:center;
 
 .login-box h1 {
 
-font-size:52px;
+font-size:38px;
 
-font-weight:800;
+font-weight:700;
 
-line-height:1.05;
+line-height:1.1;
 
-margin-bottom:12px;
+margin-bottom:8px;
 
 }
 
 .login-box h2 {
 
-font-size:34px;
+font-size:24px;
 
-font-weight:700;
+font-weight:600;
 
-color:#ffffff;
+margin-bottom:14px;
 
-margin-bottom:18px;
+color:#00ff99;
 
 }
 
 .login-subtitle {
 
-max-width:520px;
+font-size:14px;
 
-margin:0 auto 42px auto;
+line-height:1.7;
 
-font-size:16px;
+max-width:420px;
 
-line-height:1.9;
+margin:0 auto 30px auto;
 
 color:#9e9e9e;
 
