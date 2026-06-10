@@ -56,6 +56,8 @@ return;
 
 }
 
+
+  
 const entryFee =
 Number(
 String(
@@ -63,6 +65,35 @@ tournamentData.entryFee
 ).replace(/[^\d]/g, "")
 );
 
+const formattedDate =
+new Date(
+tournamentData.date
+)
+.toLocaleDateString(
+"en-IN",
+{
+day:"2-digit",
+month:"short",
+year:"numeric"
+}
+);
+
+const formattedTime =
+new Date(
+tournamentData.time
+)
+.toLocaleTimeString(
+"en-IN",
+{
+hour:"numeric",
+minute:"2-digit",
+hour12:true,
+timeZone:"UTC"
+}
+);
+
+
+  
 const mode =
 String(
 tournamentData.mode
@@ -127,9 +158,9 @@ ${tournamentData.map}
 </strong></div><div class="stat-card"><span>
 Match Time
 </span><strong>
-${tournamentData.date}
+${formattedDate}
 <br>
-${tournamentData.time}
+${formattedTime}
 </strong></div></div>`;
 }
 
