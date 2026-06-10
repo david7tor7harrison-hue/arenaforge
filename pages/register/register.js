@@ -107,22 +107,23 @@ document
 )
 .innerHTML = `
 
-<h2>
-${tournamentData.title}
-</h2><p>
-Mode:
+<div class="tournament-header"><div class="mode-badge">
 ${tournamentData.mode}
-</p><p>
-Entry Fee:
+</div><h2>
+${tournamentData.title}
+</h2></div><div class="tournament-stats"><div class="stat-card"><span>
+Entry Fee
+</span><strong>
 ₹${totalFee}
-</p><p>
-Prize:
+</strong></div><div class="stat-card"><span>
+Prize Pool
+</span><strong>
 ${tournamentData.prize}
-</p><p>
-Map:
+</strong></div></div><div class="map-card"><span>
+Map
+</span><strong>
 ${tournamentData.map}
-</p>`;
-
+</strong></div>`;
 }
 
 document
