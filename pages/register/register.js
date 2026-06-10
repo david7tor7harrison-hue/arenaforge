@@ -141,21 +141,36 @@ e
 
 e.preventDefault();
 
-try {
+const submitBtn =
+document.querySelector(
+".submit-btn"
+);
 
+submitBtn.disabled =
+true;
+
+submitBtn.innerText =
+"Processing...";
+
+try {
 if (
-  !tournamentData
+!tournamentData
 ) {
 
-  showPopup(
-  "Error",
-  "Tournament Data Not Loaded"
+submitBtn.disabled =
+false;
+
+submitBtn.innerText =
+"Submit Registration";
+
+showPopup(
+"Error",
+"Tournament Data Not Loaded"
 );
-  
-  return;
+
+return;
 
 }
-
 const data = {
 
   playerKey:
@@ -219,17 +234,23 @@ const validationResult =
   await validationResponse.json();
 
 if (
-  !validationResult.success
+!validationResult.success
 ) {
 
-  showPopup(
-  "Registration Error",
-  validationResult.error
+submitBtn.disabled =
+false;
+
+submitBtn.innerText =
+"Submit Registration";
+
+showPopup(
+"Registration Error",
+validationResult.error
 );
-  return;
+
+return;
 
 }
-
 await fetch(
   REGISTRATION_API,
   {
@@ -251,30 +272,37 @@ await fetch(
   }
 );
 
-window.location.href =
-  `../registration-success/registration-success.html?tournament=${encodeURIComponent(
-    tournamentData.title
-  )}&id=${encodeURIComponent(
-    tournamentData.id
-  )}`;
+submitBtn.innerText =
+"Success ✓";
 
+setTimeout(() => {
+
+window.location.href =
+"../registration-success/registration-success.html?tournament=${encodeURIComponent( tournamentData.title )}&id=${encodeURIComponent( tournamentData.id )}";
+
+}, 500);
 }
 
 catch (
 error
 ) {
 
+submitBtn.disabled =
+false;
+
+submitBtn.innerText =
+"Submit Registration";
+
 console.error(
-  error
+error
 );
 
 showPopup(
-  "Error",
-  "Registration Failed"
+"Error",
+"Registration Failed"
 );
-  
-}
 
+}
 }
 
 function showPopup(
@@ -315,3 +343,17 @@ document
 "none";
 
    }
+
+
+function copyUpi() {
+
+navigator.clipboard.writeText(
+"arenaforge@upi"
+);
+
+showPopup(
+"Success",
+"UPI ID Copied"
+);
+
+}
