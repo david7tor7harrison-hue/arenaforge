@@ -625,53 +625,6 @@ color:#00ff99;
 
 }
 
-.map-card {
-
-background:
-rgba(
-255,
-255,
-255,
-0.03
-);
-
-border:
-1px solid
-rgba(
-255,
-255,
-255,
-0.06
-);
-
-border-radius:16px;
-
-padding:16px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-}
-
-.map-card span {
-
-font-size:13px;
-
-color:#8f8f8f;
-
-}
-
-.map-card strong {
-
-font-size:15px;
-
-color:white;
-
-}
-
 @media(max-width:480px){
 
 .tournament-header h2{
