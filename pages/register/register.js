@@ -119,11 +119,18 @@ Entry Fee
 Prize Pool
 </span><strong>
 ${tournamentData.prize}
-</strong></div></div><div class="map-card"><span>
+</strong></div></div>
+<div class="tournament-stats"><div class="stat-card"><span>
 Map
 </span><strong>
 ${tournamentData.map}
-</strong></div>`;
+</strong></div><div class="stat-card"><span>
+Match Time
+</span><strong>
+${tournamentData.date}
+<br>
+${tournamentData.time}
+</strong></div></div>`;
 }
 
 document
