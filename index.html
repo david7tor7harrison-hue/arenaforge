@@ -67,7 +67,7 @@
 		
 		<!-- ANNOUNCEMENT -->
 		
-		<section class="announcement-box" id="announcementSection">
+		<section class="announcement-box reveal" id="announcementSection">
 			
 			<div class="announcement-header">
 				
@@ -88,7 +88,7 @@
 		
 		<!-- HERO -->
 		
-			<section class="hero">
+			<section class="hero reveal">
 			<div class="hero-overlay"></div>
 			<div class="hero-content"><span class="hero-tag">
 					⚔ INDIA'S COMPETITIVE PLATFORM
@@ -135,7 +135,7 @@
 		
 		
 		<!-- QUICK ACTIONS -->
-        		<section class="quick-actions-section">
+        		<section class="quick-actions-section reveal">
 			
 			<h2 class="section-title">
 				Quick Actions
@@ -208,7 +208,7 @@
 			
 		</section>
 		
-		<section id="tournamentModes">
+		<section id="tournamentModes reveal">
 			
 			<h2 class="section-title">
 				Tournament Modes
@@ -337,7 +337,7 @@
 			
 		</section>
 		<!-- HOT MODES -->
-		<section class="hot-section">
+		<section class="hot-section reveal">
 			
 			<div class="hot-box">
 				
@@ -372,7 +372,7 @@
 		
 		
 		<!-- MAJOR PLAYER DEMANDS -->
-		<section class="hot-section">
+		<section class="hot-section reveal">
 			
 			<div class="demand-box">
 				
@@ -423,7 +423,7 @@
 	
 	<!-- FOOTER -->
 	
-	<footer class="site-footer">
+	<footer class="site-footer reveal">
 		
 		<div class="footer-top">
 			
@@ -576,6 +576,27 @@
 	<script src="data/announcement.js"></script>
 	
 	<script src="script.js"></script>
+    <script>
+		const reveals =
+			document.querySelectorAll(
+				".reveal"
+			);
+		
+		function revealElements() {
+			
+			reveals.forEach(
+				element => {
+					
+					const top =
+						element.getBoundingClientRect().top;
+					
+					if (
+						top < window.innerHeight - 100) { element.classList.add("active"); }
+				});
+		}
+		window.addEventListener("scroll", revealElements);
+		revealElements();
+	</script>
 </body>
 
 </html>
