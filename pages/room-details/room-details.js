@@ -167,69 +167,83 @@ async function getRoomDetails() {
       "room"
     ) {
       
-      resultBox.innerHTML =
-        `
-        <div class="status-card">
+      resultBox.innerHTML = `
 
-          <h3 class="success">
-            Room Details
-          </h3>
+<div class="status-card success-card">
 
-          <p
-          style="
-          margin-bottom:15px;
-          font-weight:600;
-          "
-          >
-          ${data.title || ""}
-          </p>
+<div class="success-header">
 
-          <div class="room-box">
+<div class="success-icon">
+<i class="fa-solid fa-gamepad"></i>
+</div>
 
-            <strong>
-              Room ID
-            </strong>
+<h3>
+Room Available
+</h3>
 
-            <p>
-              ${data.roomId}
-            </p>
+<p>
+${data.title || ""}
+</p>
 
-            <button
-            onclick="
-            navigator.clipboard.writeText(
-            '${data.roomId}'
-            )
-            "
-            >
-            Copy Room ID
-            </button>
+</div>
 
-          </div>
+<div class="room-grid">
 
-          <div class="room-box">
+<div class="room-detail-card">
 
-            <strong>
-              Password
-            </strong>
+<span>
+Room ID
+</span>
 
-            <p>
-              ${data.roomPassword}
-            </p>
+<h2>
+${data.roomId}
+</h2>
 
-            <button
-            onclick="
-            navigator.clipboard.writeText(
-            '${data.roomPassword}'
-            )
-            "
-            >
-            Copy Password
-            </button>
+<button
+class="copy-btn"
+onclick="
+navigator.clipboard.writeText(
+'${data.roomId}'
+)
+"
+>
 
-          </div>
+Copy Room ID
 
-        </div>
-        `;
+</button>
+
+</div>
+
+<div class="room-detail-card">
+
+<span>
+Password
+</span>
+
+<h2>
+${data.roomPassword}
+</h2>
+
+<button
+class="copy-btn"
+onclick="
+navigator.clipboard.writeText(
+'${data.roomPassword}'
+)
+"
+>
+
+Copy Password
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
       
     }
     
@@ -331,12 +345,14 @@ function showCountdown(
         resultBox.innerHTML =
           `
           <div class="status-card">
-
+           <div class="locked-badge">
+            🔒 Room Locked
+            </div>
             <h3>
               Room Opens In
             </h3>
 
-            <div class="countdown">
+            <div class="premium-countdown">
               ${hours}h
               ${minutes}m
               ${seconds}s
