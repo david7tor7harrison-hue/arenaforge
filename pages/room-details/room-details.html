@@ -8,8 +8,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<title>
-		Room Details
+		ArenaForge Room Details
 	</title>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	
+	<!-- FONT AWESOME -->
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	
 	
 	<link rel="stylesheet" href="room-details.css">
 	
@@ -17,18 +28,60 @@
 
 <body>
 	
+	<nav class="navbar">
+		
+		<div class="nav-left">
+			
+			<img src="../../assets/logo.png" alt="ArenaForge Logo" class="logo">
+			
+			<div class="nav-text">
+				
+				<h1>ArenaForge</h1>
+				
+				<span>Esports Platform</span>
+				
+			</div>
+			
+		</div>
+		
+		<div class="nav-right">
+			
+			<button class="nav-btn">
+			
+				<i class="fa-solid fa-shield"></i>
+				
+			</button>
+			
+		</div>
+		
+	</nav>
+	
 	<main class="container">
 		
 		<div class="card">
 			
-			<h1>
-				Room Details
-			</h1>
-			
-			<p class="subtitle">
-				Enter your Registration ID
-			</p>
-			
+			<div class="room-header">
+				
+				<div class="room-icon">
+					
+					<i class="fa-solid fa-shield-halved"></i>
+					
+				</div>
+				
+				<h1>
+					
+					Room Access Center
+					
+				</h1>
+				
+				<p class="subtitle">
+					
+					Access your tournament room,
+					credentials and match information.
+					
+				</p>
+				
+			</div>
 			<input type="text" id="registrationId" placeholder="AF1748601234">
 			<input type="text" id="gameUid" class="input-field" placeholder="Enter Game UID">
 			
@@ -61,8 +114,147 @@
 		</div>
 	</main>
 	
+	<footer class="site-footer">
+		
+		<div class="footer-top">
+			
+			<div class="footer-brand">
+				
+				<img src="../../assets/logo.png" alt="ArenaForge Logo" class="footer-logo">
+				
+				<h2>ArenaForge</h2>
+				
+				<p>
+					India's competitive Free Fire tournament platform.
+					Secure matches, real players & smooth gameplay.
+				</p>
+				
+			</div>
+			
+			
+			<div class="footer-links">
+				
+				<h3>Quick Links</h3>
+				
+				<a href="../../index.html">Home</a>
+				
+				<a href="../../index.html#tournamentModes" class="account-card">Tournaments</a>
+				
+				<a href="contact.html">Contact</a>
+				
+			</div>
+			
+			
+			<div class="footer-links">
+				
+				<h3>Community</h3>
+				
+				<a href="#">Discord</a>
+				
+				<a href="#">Telegram</a>
+				
+				<a href="#">Instagram</a>
+				
+				<a href="#">YouTube</a>
+				
+			</div>
+			
+		</div>
+		
+		
+		<!-- SOCIALS -->
+		
+		<div class="footer-socials">
+			
+			<a href="#">
+				<i class="fab fa-instagram"></i>
+			</a>
+			
+			<a href="#">
+				<i class="fab fa-discord"></i>
+			</a>
+			
+			<a href="#">
+				<i class="fab fa-youtube"></i>
+			</a>
+			
+		</div>
+		
+		
+		<!-- PAYMENTS -->
+		
+		<div class="footer-payments">
+			
+			<p>
+				Trusted Payment Partners
+			</p>
+			
+			<div class="payment-logos">
+				
+				<img src="../../assets/upi.png" alt="UPI">
+				
+				<img src="../../assets/gpay.png" alt="Google Pay">
+				
+				<img src="../../assets/paytm.png" alt="Paytm">
+				
+				<img src="../../assets/phonepe.png" alt="PhonePe">
+				
+				<img src="../../assets/mastercard.png" alt="MasterCard">
+				
+			</div>
+			
+		</div>
+		
+		
+		<!-- BOTTOM -->
+		
+		<div class="footer-bottom">
+			
+			<p>
+				© 2026 ArenaForge. All Rights Reserved.
+			</p>
+			
+			<small>
+				Secure payments powered by trusted gateways.
+			</small>
+			
+		</div>
+		
+	</footer>
+	
+	
+	<div class="tabbar">
+		
+		<a href="../more/more.html" class="tab-item active">
+		
+			<i class="fa-solid fa-table-cells-large"></i>
+			
+			<span>More</span>
+			
+		</a>
+		
+		
+		<a href="../../index.html" class="tab-item">
+		
+			<i class="fa-solid fa-gamepad"></i>
+			
+			<span>Play</span>
+			
+		</a>
+		
+		
+		<a href="../support/support.html" class="tab-item">
+		
+			<i class="fa-regular fa-circle-question"></i>
+			
+			<span>Support</span>
+			
+		</a>
+		
+	</div>
+	
+	
 	<script src="room-details.js"></script>
 	
 </body>
-
 </html>
