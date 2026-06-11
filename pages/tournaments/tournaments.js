@@ -24,7 +24,13 @@ loadTournaments();
 async function loadTournaments() {
   
   try {
-    
+    wrapper.innerHTML = `
+
+<div class="skeleton-card"></div>
+<div class="skeleton-card"></div>
+<div class="skeleton-card"></div>
+
+`;
     const response =
       await fetch(API_URL);
     
@@ -35,9 +41,23 @@ async function loadTournaments() {
     
   } catch (error) {
     
-    wrapper.innerHTML =
-      "<h2>Failed to load tournaments</h2>";
-    
+    wrapper.innerHTML = `
+
+<div class="empty-state">
+
+<h2>
+No Tournaments Available
+</h2>
+
+<p>
+
+New tournaments will appear here soon.
+
+</p>
+
+</div>
+
+`;
     console.error(error);
     
   }
@@ -100,6 +120,12 @@ function render() {
     
   }
   
+  data.sort(
+    (a, b) =>
+    new Date(a.date) -
+    new Date(b.date)
+  );
+  
   data.forEach(
     tournament => {
       
@@ -109,13 +135,13 @@ function render() {
           tournament.slots
         ) * 100;
       let joinButton = "";
-
-if (
-  tournament.status === "upcoming" &&
-  tournament.joined < tournament.slots
-) {
-  
-  joinButton = `
+      
+      if (
+        tournament.status === "upcoming" &&
+        tournament.joined < tournament.slots
+      ) {
+        
+        joinButton = `
   <button
     class="btn join-btn"
     onclick="
@@ -126,15 +152,15 @@ if (
     Join Now
   </button>
   `;
-  
-}
-
-else if (
-  tournament.status === "upcoming" &&
-  tournament.joined >= tournament.slots
-) {
-  
-  joinButton = `
+        
+      }
+      
+      else if (
+        tournament.status === "upcoming" &&
+        tournament.joined >= tournament.slots
+      ) {
+        
+        joinButton = `
   <button
     class="btn room-full-btn"
     disabled
@@ -142,14 +168,14 @@ else if (
     Room Full
   </button>
   `;
-  
-}
-
-else if (
-  tournament.status === "live"
-) {
-  
-  joinButton = `
+        
+      }
+      
+      else if (
+        tournament.status === "live"
+      ) {
+        
+        joinButton = `
   <button
     class="btn live-btn"
     disabled
@@ -157,12 +183,12 @@ else if (
     Match Live
   </button>
   `;
-  
-}
-
-else {
-  
-  joinButton = `
+        
+      }
+      
+      else {
+        
+        joinButton = `
   <button
     class="btn completed-btn"
     disabled
@@ -170,70 +196,103 @@ else {
     Completed
   </button>
   `;
-  
-}
+        
+        
+      }
       wrapper.innerHTML += `
 
 <div class="tournament-card">
 
-<img
-src="${tournament.image}"
->
-
-<div class="content">
-
-<span
-class="badge ${tournament.status}"
->
-
-${tournament.status}
-
-</span>
-
-<h2>
-
-<div class="stats-grid">
-
-<div>
-<span>Prize Pool</span>
-<strong>${tournament.prize}</strong>
-</div>
-
-<div>
-<span>Entry Fee</span>
-<strong>${tournament.entryFee}</strong>
-</div>
-
-<div>
-<span>Map</span>
-<strong>${tournament.map}</strong>
-</div>
-
-<div>
-<span>Mode</span>
-<strong>${tournament.mode}</strong>
-</div>
-
-</div>
+<div class="card-image">
+<div class="image-title">
 
 ${tournament.title}
 
-</h2>
+</div>
+<img
+src="${tournament.image}"
+alt="${tournament.title}"
+>
 
-<p>
-Prize:
+<span class="status-badge ${tournament.status}">
+${tournament.status}
+</span>
+
+</div>
+
+<div class="content">
+
+<div class="tournament-meta">
+
+<span>
+<i class="fa-regular fa-calendar"></i>
+${new Date(
+tournament.date
+).toLocaleDateString(
+"en-IN",
+{
+day:"2-digit",
+month:"short"
+}
+)}
+</span>
+
+<span>
+<i class="fa-regular fa-clock"></i>
+${new Date(
+tournament.time
+).toLocaleTimeString(
+"en-IN",
+{
+hour:"numeric",
+minute:"2-digit",
+hour12:true,
+timeZone:"UTC"
+}
+)}
+</span>
+
+</div>
+
+<div class="tournament-tags">
+
+<span>
+🗺 ${tournament.map}
+</span>
+
+<span>
+🎮 ${tournament.mode}
+</span>
+
+</div>
+
+<div class="mini-stats">
+
+<div>
+
+<small>
+Prize Pool
+</small>
+
+<strong>
 ${tournament.prize}
-</p>
+</strong>
 
-<p>
-Entry:
+</div>
+
+<div>
+
+<small>
+Entry Fee
+</small>
+
+<strong>
 ${tournament.entryFee}
-</p>
+</strong>
 
-<p>
-Map:
-${tournament.map}
-</p>
+</div>
+
+</div>
 
 <div class="progress">
 
@@ -241,17 +300,35 @@ ${tournament.map}
 class="progress-fill"
 style="width:${progress}%"
 >
-
 </div>
 
 </div>
 
-<p>
+<div class="slot-row">
+
+<span>
+
 ${tournament.joined}
 /
 ${tournament.slots}
-Joined
-</p>
+
+Slots Filled
+
+</span>
+
+<span>
+
+${Math.max(
+0,
+tournament.slots -
+tournament.joined
+)}
+
+Left
+
+</span>
+
+</div>
 
 <div class="actions">
 
@@ -273,7 +350,6 @@ ${joinButton}
 </div>
 
 `;
-      
     });
   
 }
