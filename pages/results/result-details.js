@@ -102,6 +102,17 @@ function renderResult(
   result,
   tournament
 ) {
+  const formattedDate =
+  new Date(
+    tournament.date
+  ).toLocaleDateString(
+    "en-IN",
+    {
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    }
+  );
   
   container.innerHTML = `
 
@@ -122,68 +133,57 @@ RESULT DECLARED
 </span>
 
 <h1>
-
 ${result.tournamentTitle}
-
 </h1>
 
-<p>
+<div class="hero-info">
 
-🎮 Match ID :
-${result.matchId}
+<span>
+🎮 ${result.matchId}
+</span>
 
-</p>
+<span>
+📅 ${formattedDate}
+</span>
 
-<p>
-
-🎯 Mode :
-${result.mode}
-
-</p>
-
-<p>
-
-🏆 Prize Pool :
-${result.prizePool}
-
-</p>
+<span>
+⚔️ ${tournament.mode}
+</span>
 
 </div>
 
 </div>
 
-<div class="winner-section">
+</div>
+
+<div class="details-wrapper">
+
+<div class="champion-card">
+
+<div class="champion-badge">
+👑 CHAMPION
+</div>
 
 <h2>
-
-🏆 Winners
-
+${result.rank1Name}
 </h2>
 
-<div class="winner-card">
-
-<div class="rank">
-🥇 #1
-</div>
-
-<div class="player">
-${result.rank1Name}
-</div>
-
-<div class="kills">
+<p>
 ${result.rank1Kills} Kills
-</div>
+</p>
 
-<div class="prize">
+<div class="champion-prize">
 ${result.rank1Prize}
 </div>
 
 </div>
 
+<div class="podium-grid">
+
 <div class="winner-card">
 
 <div class="rank">
-🥈 #2
+🥈 Runner Up
 </div>
 
 <div class="player">
@@ -203,7 +203,7 @@ ${result.rank2Prize}
 <div class="winner-card">
 
 <div class="rank">
-🥉 #3
+🥉 Third Place
 </div>
 
 <div class="player">
@@ -216,6 +216,60 @@ ${result.rank3Kills} Kills
 
 <div class="prize">
 ${result.rank3Prize}
+</div>
+
+</div>
+
+</div>
+
+<div class="match-info">
+
+<div class="info-card">
+
+<span>
+Prize Pool
+</span>
+
+<strong>
+${tournament.prize}
+</strong>
+
+</div>
+
+<div class="info-card">
+
+<span>
+Match ID
+</span>
+
+<strong>
+${result.matchId}
+</strong>
+
+</div>
+
+<div class="info-card">
+
+<span>
+Mode
+</span>
+
+<strong>
+${tournament.mode}
+</strong>
+
+</div>
+
+<div class="info-card">
+
+<span>
+Date
+</span>
+
+<strong>
+${formattedDate}
+</strong>
+
 </div>
 
 </div>
