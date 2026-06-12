@@ -1,220 +1,437 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-
-background:#050505;
-
-color:white;
-
-font-family:Poppins,sans-serif;
-
-min-height:100vh;
-
+body {
+  
+  background: #050505;
+  
+  color: white;
+  
+  font-family: Poppins, sans-serif;
+  
+  min-height: 100vh;
+  
+  
+  
+  background:
+    radial-gradient(circle at top,
+      rgba(0, 255, 153, .08),
+      transparent 35%),
+    #050505;
+  
+  
+  
 }
 
-.hero{
-
-position:relative;
-
-height:300px;
-
-overflow:hidden;
-
+.hero {
+  
+  position: relative;
+  
+  height: 300px;
+  
+  overflow: hidden;
+  
 }
 
-.hero img{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
+.hero img {
+  
+  width: 100%;
+  
+  height: 100%;
+  
+  object-fit: cover;
+  
 }
 
-.overlay{
-
-position:absolute;
-
-inset:0;
-
-background:
-linear-gradient(
-to top,
-#050505,
-rgba(0,0,0,.2)
-);
-
+.overlay {
+  
+  position: absolute;
+  
+  inset: 0;
+  
+  background:
+    linear-gradient(to top,
+      #050505,
+      rgba(0, 0, 0, .2));
+  
 }
 
-.hero-content{
-
-position:absolute;
-
-bottom:30px;
-
-left:25px;
-
-z-index:5;
-
+.hero-content {
+  
+  position: absolute;
+  
+  bottom: 30px;
+  
+  left: 25px;
+  
+  z-index: 5;
+  
 }
 
-.result-tag{
-
-background:#00ff99;
-
-color:black;
-
-padding:8px 14px;
-
-border-radius:30px;
-
-font-weight:700;
-
-font-size:12px;
-
-display:inline-block;
-
-margin-bottom:12px;
-
+.result-tag {
+  
+  background: #00ff99;
+  
+  color: black;
+  
+  padding: 8px 14px;
+  
+  border-radius: 30px;
+  
+  font-weight: 700;
+  
+  font-size: 12px;
+  
+  display: inline-block;
+  
+  margin-bottom: 12px;
+  
 }
 
-.hero-content h1{
-
-font-size:28px;
-
-margin-bottom:8px;
-
+.hero-content h1 {
+  
+  font-size: 28px;
+  
+  margin-bottom: 8px;
+  
 }
 
-.hero-content p{
-
-color:#aaa;
-
+.hero-content p {
+  
+  color: #aaa;
+  
 }
 
-.winner-section{
-
-padding:25px;
-
+.winner-section {
+  
+  padding: 25px;
+  
 }
 
-.winner-section h2{
-
-margin-bottom:20px;
-
-font-size:24px;
-
+.winner-section h2 {
+  
+  margin-bottom: 20px;
+  
+  font-size: 24px;
+  
 }
 
-.winner-card{
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-background:#111;
-
-padding:18px;
-
-border-radius:18px;
-
-margin-bottom:15px;
-
-border:1px solid #222;
-
-transition:.3s;
-
+.winner-card {
+  
+  display: flex;
+  
+  align-items: center;
+  
+  justify-content: space-between;
+  
+  background: #111;
+  
+  padding: 18px;
+  
+  border-radius: 18px;
+  
+  margin-bottom: 15px;
+  
+  border: 1px solid #222;
+  
+  transition: .3s;
+  
 }
 
-.winner-card:hover{
-
-transform:translateY(-2px);
-
-border-color:#00ff99;
-
+.winner-card:hover {
+  
+  transform: translateY(-2px);
+  
+  border-color: #00ff99;
+  
 }
 
-.rank{
-
-font-size:20px;
-
-font-weight:700;
-
-width:80px;
-
+.rank {
+  
+  min-width: 90px;
+  
+  font-weight: 700;
+  
 }
 
-.player{
-
-flex:1;
-
-font-size:18px;
-
-font-weight:600;
-
+.player {
+  
+  flex: 1;
+  
+  font-size: 18px;
+  
+  font-weight: 600;
+  
 }
 
-.kills{
-
-color:#00ff99;
-
-font-weight:700;
-
+.kills {
+  
+  color: #00ff99;
+  
+  font-weight: 700;
+  
 }
 
-.prize{
-
-font-size:18px;
-
-font-weight:700;
-
-color:#ffd700;
-
+.prize {
+  
+  color: #ffd700;
+  
+  font-weight: 700;
+  
 }
 
-.empty{
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-height:100vh;
-
-text-align:center;
-
-padding:20px;
-
+.empty {
+  
+  display: flex;
+  
+  flex-direction: column;
+  
+  justify-content: center;
+  
+  align-items: center;
+  
+  height: 100vh;
+  
+  text-align: center;
+  
+  padding: 20px;
+  
 }
 
-.empty i{
-
-font-size:60px;
-
-margin-bottom:20px;
-
-color:#ffd700;
-
+.empty i {
+  
+  font-size: 60px;
+  
+  margin-bottom: 20px;
+  
+  color: #ffd700;
+  
 }
 
-.empty h2{
-
-margin-bottom:10px;
-
+.empty h2 {
+  
+  margin-bottom: 10px;
+  
 }
 
-.empty p{
+.empty p {
+  
+  color: #888;
+  
+}
 
-color:#888;
+.details-wrapper {
+  
+  padding: 24px;
+  
+  max-width: 1200px;
+  
+  margin: auto;
+  
+}
 
+.champion-card {
+  
+  padding: 22px;
+  
+  border-radius: 24px;
+  
+  background:
+    rgba(12, 12, 12, .92);
+  
+  backdrop-filter:
+    blur(14px);
+  
+  border:
+    1px solid rgba(0,
+      255,
+      153,
+      .18);
+  
+  box-shadow:
+    0 0 30px rgba(0,
+      255,
+      153,
+      .08);
+  
+}
+
+.champion-badge {
+  
+  display: inline-block;
+  
+  padding: 10px 18px;
+  
+  border-radius: 999px;
+  
+  margin-bottom: 16px;
+  
+  font-size: 12px;
+  
+  font-weight: 700;
+  
+  background:
+    rgba(0, 255, 153, .15);
+  
+  color: #00ff99;
+  
+}
+
+.champion-card h2 {
+  
+  font-size: 32px;
+  
+  margin-bottom: 10px;
+  
+}
+
+.champion-card p {
+  
+  color: #9f9f9f;
+  
+  margin-bottom: 16px;
+  
+}
+
+.champion-prize {
+  
+  font-size: 24px;
+  
+  font-weight: 800;
+  
+  color: #ffd700;
+  
+}
+
+.podium-grid {
+  
+  display: grid;
+  
+  grid-template-columns: 1fr 1fr;
+  
+  gap: 16px;
+  
+  margin-bottom: 24px;
+  
+}
+
+.winner-card {
+  
+  display: flex;
+  
+  justify-content: space-between;
+  
+  align-items: center;
+  
+  gap: 14px;
+  
+  padding: 18px;
+  
+  background: #101010;
+  
+  border-radius: 18px;
+  
+  border:
+    1px solid rgba(255,
+      255,
+      255,
+      .06);
+  
+}
+
+.match-info {
+  
+  display: grid;
+  
+  grid-template-columns:
+    repeat(2, 1fr);
+  
+  gap: 14px;
+  
+}
+
+.info-card {
+  
+  padding: 18px;
+  
+  border-radius: 18px;
+  
+  background: #111;
+  
+  border:
+    1px solid rgba(255,
+      255,
+      255,
+      .05);
+  
+}
+
+.info-card span {
+  
+  display: block;
+  
+  font-size: 12px;
+  
+  color: #888;
+  
+  margin-bottom: 8px;
+  
+}
+
+.info-card strong {
+  
+  font-size: 16px;
+  
+  color: white;
+  
+}
+
+.hero-info {
+  
+  display: flex;
+  
+  gap: 14px;
+  
+  flex-wrap: wrap;
+  
+  margin-top: 12px;
+  
+}
+
+.hero-info span {
+  
+  padding: 8px 14px;
+  
+  border-radius: 999px;
+  
+  background:
+    rgba(255, 255, 255, .08);
+  
+  font-size: 13px;
+  
+}
+
+@media(max-width:700px) {
+  
+  .podium-grid {
+    
+    grid-template-columns: 1fr;
+    
+  }
+  
+  .match-info {
+    
+    grid-template-columns: 1fr 1fr;
+    
+  }
+  
+  .champion-card h2 {
+    
+    font-size: 24px;
+    
+  }
+  
 }
