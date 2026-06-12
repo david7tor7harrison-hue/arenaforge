@@ -150,30 +150,73 @@ No Results Available
 
 <div class="result-card">
 
+<div class="result-banner">
+
 <img
 src="${tournament.modeImage}"
 class="result-image"
 >
 
-<div class="result-content">
-
-<span class="declared">
+<span class="result-ribbon">
 RESULT DECLARED
 </span>
 
-<h2>
+</div>
+
+<div class="result-content">
+
+<h2 class="result-title">
 ${result.tournamentTitle}
 </h2>
 
-<p>
-🎮 Match ID:
-${result.matchId}
-</p>
+<div class="winner-row">
 
-<p>
-🥇 Winner:
+<span>
+🏆 Winner
+</span>
+
+<strong>
 ${result.rank1Name}
-</p>
+</strong>
+
+</div>
+
+<div class="info-row">
+
+<div class="info-box">
+
+<span>
+Date
+</span>
+
+<strong>
+${new Date(
+tournament.date
+).toLocaleDateString(
+"en-IN",
+{
+day:"2-digit",
+month:"short",
+year:"numeric"
+}
+)}
+</strong>
+
+</div>
+
+<div class="info-box">
+
+<span>
+Match ID
+</span>
+
+<strong>
+${result.matchId}
+</strong>
+
+</div>
+
+</div>
 
 <button
 class="view-btn"
@@ -183,7 +226,7 @@ window.location.href=
 "
 >
 
-View Result
+View Result →
 
 </button>
 
