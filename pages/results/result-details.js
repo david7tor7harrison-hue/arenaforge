@@ -22,6 +22,34 @@ loadResult();
 async function loadResult() {
   
   try {
+    container.innerHTML = `
+
+<div class="details-skeleton">
+
+<div class="skeleton-banner"></div>
+
+<div class="skeleton-champion"></div>
+
+<div class="skeleton-podium"></div>
+
+<div class="skeleton-podium"></div>
+
+<div class="skeleton-grid">
+
+<div class="skeleton-info"></div>
+
+<div class="skeleton-info"></div>
+
+<div class="skeleton-info"></div>
+
+<div class="skeleton-info"></div>
+
+</div>
+
+</div>
+
+`;
+    
     
     const [
       resultsResponse,
@@ -58,16 +86,29 @@ async function loadResult() {
       
       container.innerHTML = `
 
-<div class="empty">
+<div class="empty-state">
+
+<i class="fa-solid fa-trophy"></i>
 
 <h2>
-Results Not Available
+Result Not Found
 </h2>
+
+<p>
+This tournament result is not available
+or may have been removed.
+</p>
+
+<a
+href="results.html"
+class="back-btn"
+>
+Back To Results
+</a>
 
 </div>
 
 `;
-      
       return;
       
     }
@@ -84,11 +125,25 @@ Results Not Available
     
     container.innerHTML = `
 
-<div class="empty">
+<div class="error-state">
+
+<i class="fa-solid fa-wifi"></i>
 
 <h2>
-Failed To Load Result
+Connection Error
 </h2>
+
+<p>
+Unable to load tournament result.
+Please check your internet connection.
+</p>
+
+<button
+class="retry-btn"
+onclick="loadResult()"
+>
+Try Again
+</button>
 
 </div>
 
@@ -103,16 +158,42 @@ function renderResult(
   tournament
 ) {
   const formattedDate =
-  new Date(
-    tournament.date
-  ).toLocaleDateString(
-    "en-IN",
-    {
-      day: "numeric",
-      month: "short",
-      year: "numeric"
-    }
-  );
+    tournament.date ?
+    new Date(
+      tournament.date
+    ).toLocaleDateString(
+      "en-IN",
+      {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      }
+    ) :
+    "TBA";
+  
+  const runnerUp =
+    result.rank2Name ||
+    "Not Available";
+  
+  const thirdPlace =
+    result.rank3Name ||
+    "Not Available";
+  
+  const runnerKills =
+    result.rank2Kills ||
+    "-";
+  
+  const thirdKills =
+    result.rank3Kills ||
+    "-";
+  
+  const runnerPrize =
+    result.rank2Prize ||
+    "-";
+  
+  const thirdPrize =
+    result.rank3Prize ||
+    "-";
   
   container.innerHTML = `
 
@@ -120,6 +201,9 @@ function renderResult(
 
 <img
 src="${tournament.modeImage}"
+onerror="
+this.src='../../assets/logo.png'
+"
 >
 
 <div class="overlay"></div>
@@ -187,15 +271,15 @@ ${result.rank1Prize}
 </div>
 
 <div class="player">
-${result.rank2Name}
+${runnerUp}
 </div>
 
 <div class="kills">
-${result.rank2Kills} Kills
+${runnerKills} Kills
 </div>
 
 <div class="prize">
-${result.rank2Prize}
+${runnerPrize}
 </div>
 
 </div>
@@ -207,15 +291,15 @@ ${result.rank2Prize}
 </div>
 
 <div class="player">
-${result.rank3Name}
+${thirdPlace}
 </div>
 
 <div class="kills">
-${result.rank3Kills} Kills
+${thirdKills} Kills
 </div>
 
 <div class="prize">
-${result.rank3Prize}
+${thirdPrize}
 </div>
 
 </div>
