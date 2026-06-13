@@ -1,3 +1,64 @@
+const MODE_SETTINGS = {
+  
+  battle_royal: {
+    map: "Bermuda",
+    rounds: "1",
+    ammo: "Default",
+    throwable: "Allowed",
+    character: "Allowed"
+  },
+  
+  ff_survival: {
+    map: "Bermuda",
+    rounds: "1",
+    ammo: "Default",
+    throwable: "Allowed",
+    character: "Allowed"
+  },
+  
+  head_1v1: {
+    map: "Iron Cage",
+    rounds: "Best Of 7",
+    ammo: "Unlimited",
+    throwable: "Disabled",
+    character: "Disabled"
+  },
+  
+  head_2v2: {
+    map: "Iron Cage",
+    rounds: "Best Of 7",
+    ammo: "Unlimited",
+    throwable: "Disabled",
+    character: "Disabled"
+  },
+  
+  cs_lw_1v1: {
+    map: "Iron Cage",
+    rounds: "Best Of 7",
+    ammo: "Unlimited",
+    throwable: "Allowed",
+    character: "Allowed"
+  },
+  
+  cs_lw_2v2: {
+    map: "Iron Cage",
+    rounds: "Best Of 7",
+    ammo: "Unlimited",
+    throwable: "Allowed",
+    character: "Allowed"
+  },
+  
+  cs_4v4: {
+    map: "Random",
+    rounds: "13",
+    ammo: "Unlimited",
+    throwable: "Allowed",
+    character: "Allowed"
+  }
+  
+};
+
+
 const API_URL =
   "https://script.google.com/macros/s/AKfycbzpHgmuGwRnr6ewMtHtyVY6Hq0dYMzRLF6ei_ACZ6MIiWcxxzYio15Ru7rzSYKHe5vSng/exec";
 
@@ -26,10 +87,37 @@ async function loadTournaments() {
   try {
     wrapper.innerHTML = `
 
-<div class="skeleton-card"></div>
-<div class="skeleton-card"></div>
-<div class="skeleton-card"></div>
+<div class="skeleton-card">
 
+<div class="skeleton-image"></div>
+
+<div class="skeleton-content">
+
+<div class="skeleton-line long"></div>
+
+<div class="skeleton-line"></div>
+
+<div class="skeleton-line short"></div>
+
+</div>
+
+</div>
+
+<div class="skeleton-card">
+
+<div class="skeleton-image"></div>
+
+<div class="skeleton-content">
+
+<div class="skeleton-line long"></div>
+
+<div class="skeleton-line"></div>
+
+<div class="skeleton-line short"></div>
+
+</div>
+
+</div>
 `;
     const response =
       await fetch(API_URL);
@@ -39,29 +127,38 @@ async function loadTournaments() {
     
     render();
     
-  } catch (error) {
+  }
+  catch (error) {
+    
+    console.error(error);
     
     wrapper.innerHTML = `
 
-<div class="empty-state">
+<div class="error-state">
+
+<i class="fa-solid fa-wifi"></i>
 
 <h2>
-No Tournaments Available
+Connection Error
 </h2>
 
 <p>
-
-New tournaments will appear here soon.
-
+Unable to load tournaments.
+Please check your internet connection.
 </p>
+
+<button
+class="btn join-btn"
+onclick="loadTournaments()"
+>
+Retry
+</button>
 
 </div>
 
 `;
-    console.error(error);
     
   }
-  
 }
 
 document
@@ -126,14 +223,42 @@ function render() {
     new Date(b.date)
   );
   
+  if (data.length === 0) {
+    
+    wrapper.innerHTML = `
+
+<div class="empty-state">
+
+<i class="fa-solid fa-calendar-xmark"></i>
+
+<h2>
+No Tournaments Found
+</h2>
+
+<p>
+There are currently no tournaments in this category.
+Please check again later.
+</p>
+
+</div>
+
+`;
+    
+    return;
+    
+  }
+  
   data.forEach(
     tournament => {
       
       const progress =
-        (
-          tournament.joined /
-          tournament.slots
-        ) * 100;
+        Math.min(
+          100,
+          (
+            tournament.joined /
+            tournament.slots
+          ) * 100
+        );
       let joinButton = "";
       
       if (
@@ -212,6 +337,9 @@ ${tournament.title}
 <img
 src="${tournament.image}"
 alt="${tournament.title}"
+onerror="
+this.src='../../assets/logo.png'
+"
 >
 
 <span class="status-badge ${tournament.status}">
@@ -336,15 +464,23 @@ Left
 class="btn details-btn"
 onclick="openDetails('${tournament.id}')"
 >
-
 Details
+</button>
 
+<button
+class="btn settings-btn"
+onclick="
+openSettings(
+'${tournament.category}'
+)
+"
+>
+⚙ Settings
 </button>
 
 ${joinButton}
 
 </div>
-
 </div>
 
 </div>
@@ -358,5 +494,85 @@ function openDetails(id) {
   
   window.location.href =
     `../tournament_details/tournament_details.html?id=${id}`;
+  
+}
+
+function openSettings(mode) {
+  
+  const settings =
+    MODE_SETTINGS[
+      mode.toLowerCase()
+    ];
+  
+  if (!settings) {
+    
+    document
+      .getElementById(
+        "settingsContent"
+      ).innerHTML =
+      "<p>No settings available.</p>";
+    
+  }
+  
+  else {
+    
+    document
+      .getElementById(
+        "settingsContent"
+      ).innerHTML = `
+
+<div class="setting-row">
+<span>Map</span>
+<strong>${settings.map}</strong>
+</div>
+
+<div class="setting-row">
+<span>Rounds</span>
+<strong>${settings.rounds}</strong>
+</div>
+
+<div class="setting-row">
+<span>Ammo</span>
+<strong>${settings.ammo}</strong>
+</div>
+
+<div class="setting-row">
+<span>Throwables</span>
+<strong>${settings.throwable}</strong>
+</div>
+
+<div class="setting-row">
+<span>Character</span>
+<strong>${settings.character}</strong>
+</div>
+
+<div class="settings-tip">
+
+💡 Invite your friends or
+opponents for faster matchmaking.
+
+</div>
+
+`;
+    
+  }
+  
+  document
+    .getElementById(
+      "settingsPopup"
+    )
+    .style.display =
+    "flex";
+  
+}
+
+function closeSettings() {
+  
+  document
+    .getElementById(
+      "settingsPopup"
+    )
+    .style.display =
+    "none";
   
 }
