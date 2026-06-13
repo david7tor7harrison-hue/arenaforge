@@ -22,6 +22,57 @@ async function loadData() {
   
   try {
     
+    container.innerHTML = `
+<div class="skeleton-card">
+
+<div class="skeleton-image"></div>
+
+<div class="skeleton-content">
+
+<div class="skeleton-line long"></div>
+
+<div class="skeleton-line"></div>
+
+<div class="skeleton-line short"></div>
+
+</div>
+
+</div>
+
+<div class="skeleton-card">
+
+<div class="skeleton-image"></div>
+
+<div class="skeleton-content">
+
+<div class="skeleton-line long"></div>
+
+<div class="skeleton-line"></div>
+
+<div class="skeleton-line short"></div>
+
+</div>
+
+</div>
+
+<div class="skeleton-card">
+
+<div class="skeleton-image"></div>
+
+<div class="skeleton-content">
+
+<div class="skeleton-line long"></div>
+
+<div class="skeleton-line"></div>
+
+<div class="skeleton-line short"></div>
+
+</div>
+
+</div>
+
+`;
+    
     const [
       resultsResponse,
       tournamentsResponse
@@ -39,19 +90,41 @@ async function loadData() {
     renderResults();
     
   }
+  
   catch (error) {
     
     console.error(error);
     
     container.innerHTML = `
+
+<div class="error-state">
+
+<i class="fa-solid fa-wifi"></i>
+
 <h2>
-Failed To Load Results
+Connection Error
 </h2>
+
+<p>
+Unable to load results.
+Check your internet connection.
+</p>
+
+<button
+class="view-btn"
+onclick="loadData()"
+>
+Retry
+</button>
+
+</div>
+
 `;
     
   }
   
 }
+
 
 document
   .querySelectorAll(".mode-btn")
@@ -114,19 +187,45 @@ function renderResults() {
       
     });
   
+  declaredResults.sort(
+    (a, b) => {
+      
+      const tournamentA =
+        tournaments.find(
+          t => String(t.id) === String(a.matchId)
+        );
+      
+      const tournamentB =
+        tournaments.find(
+          t => String(t.id) === String(b.matchId)
+        );
+      
+      return (
+        new Date(tournamentB.date) -
+        new Date(tournamentA.date)
+      );
+      
+    }
+  );
+  
   if (
     declaredResults.length === 0
   ) {
     
     container.innerHTML = `
 
-<div class="empty">
+<div class="empty-state">
 
 <i class="fa-solid fa-trophy"></i>
 
 <h2>
-No Results Available
+No Results Found
 </h2>
+
+<p>
+No tournament results are available
+for this category right now.
+</p>
 
 </div>
 
@@ -155,6 +254,9 @@ No Results Available
 <img
 src="${tournament.modeImage}"
 class="result-image"
+onerror="
+this.src='../../assets/logo.png'
+"
 >
 
 <span class="result-ribbon">
