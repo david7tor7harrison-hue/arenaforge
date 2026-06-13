@@ -45,7 +45,19 @@ async function getRoomDetails() {
       `
       <div class="status-card">
         <p class="error">
-          Enter Registration ID
+          <div class="empty-state">
+
+<i class="fa-solid fa-id-card"></i>
+
+<h2>
+Registration ID Required
+</h2>
+
+<p>
+Please enter your Registration ID.
+</p>
+
+</div>
         </p>
       </div>
       `;
@@ -60,7 +72,19 @@ async function getRoomDetails() {
       `
     <div class="status-card">
       <p class="error">
-        Enter Game UID
+        <div class="empty-state">
+
+<i class="fa-solid fa-id-card"></i>
+
+<h2>
+GAME UID Required
+</h2>
+
+<p>
+Please enter your Game UID.
+</p>
+
+</div>
       </p>
     </div>
     `;
@@ -75,6 +99,24 @@ async function getRoomDetails() {
     "Loading...";
   
   try {
+    
+    resultBox.innerHTML = `
+
+<div class="status-card loading-card">
+
+<div class="loader"></div>
+
+<h3>
+Fetching Room Details...
+</h3>
+
+<p>
+Please wait a moment.
+</p>
+
+</div>
+
+`;
     
     const response =
       await fetch(
@@ -96,15 +138,20 @@ async function getRoomDetails() {
       
       resultBox.innerHTML =
         `
-        <div class="status-card">
-          <h3 class="error">
-            Pending Verification
-          </h3>
-          <p>
-            Your payment has not been approved yet.
-          </p>
-        </div>
-        `;
+      <div class="empty-state">
+
+<i class="fa-solid fa-clock"></i>
+
+<h2>
+Verification Pending
+</h2>
+
+<p>
+Your payment is under review.
+Room details will unlock after approval.
+</p>
+
+</div>  `;
       
       return;
       
@@ -117,14 +164,20 @@ async function getRoomDetails() {
       
       resultBox.innerHTML =
         `
-        <div class="status-card">
-          <h3 class="error">
-            Waitlist
-          </h3>
-          <p>
-            You are currently on waitlist.
-          </p>
-        </div>
+        <div class="empty-state">
+
+<i class="fa-solid fa-hourglass-half"></i>
+
+<h2>
+Waitlist
+</h2>
+
+<p>
+You are currently in the waitlist queue.
+A slot may become available soon.
+</p>
+
+</div>
         `;
       
       return;
@@ -138,11 +191,19 @@ async function getRoomDetails() {
       
       resultBox.innerHTML =
         `
-        <div class="status-card">
-          <h3 class="error">
-            Invalid Registration ID
-          </h3>
-        </div>
+        <div class="empty-state">
+
+<i class="fa-solid fa-circle-xmark"></i>
+
+<h2>
+Invalid Registration ID
+</h2>
+
+<p>
+Please check your Registration ID and try again.
+</p>
+
+</div>
         `;
       
       return;
@@ -246,6 +307,28 @@ Copy Password
 `;
       
     }
+    else {
+      
+      resultBox.innerHTML = `
+
+<div class="error-state">
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+<h2>
+Unexpected Response
+</h2>
+
+<p>
+Something went wrong.
+Please try again later.
+</p>
+
+</div>
+
+`;
+      
+    }
     
   }
   
@@ -256,15 +339,31 @@ Copy Password
     button.innerText =
       "Get Room Details";
     
-    resultBox.innerHTML =
-      `
-      <div class="status-card">
-        <p class="error">
-          Failed To Load Data
-        </p>
-      </div>
-      `;
-    
+    resultBox.innerHTML = `
+
+<div class="error-state">
+
+<i class="fa-solid fa-wifi"></i>
+
+<h2>
+Connection Error
+</h2>
+
+<p>
+Unable to fetch room details.
+Please check your internet connection.
+</p>
+
+<button
+class="retry-btn"
+onclick="getRoomDetails()"
+>
+Try Again
+</button>
+
+</div>
+
+`;
   }
   
 }
