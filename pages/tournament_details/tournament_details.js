@@ -52,6 +52,27 @@ async function loadTournament() {
   
   try {
     
+    container.innerHTML = `
+
+<div class="details-skeleton">
+
+<div class="skeleton-banner"></div>
+
+<div class="skeleton-grid">
+
+<div class="skeleton-card"></div>
+<div class="skeleton-card"></div>
+<div class="skeleton-card"></div>
+<div class="skeleton-card"></div>
+
+</div>
+
+<div class="skeleton-rules"></div>
+
+</div>
+
+`;
+    
     const response =
       await fetch(API_URL);
     
@@ -68,13 +89,32 @@ async function loadTournament() {
     if (!tournament) {
       
       container.innerHTML = `
-      <h2 class="error">
-      Tournament Not Found
-      </h2>
-      `;
+
+<div class="empty-state">
+
+<i class="fa-solid fa-calendar-xmark"></i>
+
+<h2>
+Tournament Not Found
+</h2>
+
+<p>
+This tournament may have been removed
+or is no longer available.
+</p>
+
+<a
+href="../tournaments/tournaments.html"
+class="retry-btn"
+>
+Back
+</a>
+
+</div>
+
+`;
       
       return;
-      
     }
     
     renderTournament(
@@ -88,10 +128,30 @@ async function loadTournament() {
     console.error(error);
     
     container.innerHTML = `
-    <h2 class="error">
-    Failed To Load Tournament
-    </h2>
-    `;
+
+<div class="error-state">
+
+<i class="fa-solid fa-wifi"></i>
+
+<h2>
+Connection Error
+</h2>
+
+<p>
+Unable to load tournament details.
+Please check your internet connection.
+</p>
+
+<button
+class="retry-btn"
+onclick="loadTournament()"
+>
+Try Again
+</button>
+
+</div>
+
+`;
     
   }
   
@@ -103,11 +163,15 @@ function renderTournament(
 ) {
   currentTournament =
     tournament;
+  
   const progress =
+    tournament.slots > 0 ?
     (
       tournament.joined /
       tournament.slots
-    ) * 100;
+    ) * 100 :
+    0;
+  
   let actionButton = "";
   
   if (
@@ -173,6 +237,7 @@ function renderTournament(
     
   }
   const formattedDate =
+    tournament.date ?
     new Date(
       tournament.date
     ).toLocaleDateString(
@@ -182,9 +247,11 @@ function renderTournament(
         month: "short",
         year: "numeric"
       }
-    );
+    ) :
+    "TBA";
   
   const formattedTime =
+    tournament.time ?
     new Date(
       tournament.time
     ).toLocaleTimeString(
@@ -195,7 +262,8 @@ function renderTournament(
         hour12: true,
         timeZone: "UTC"
       }
-    );
+    ) :
+    "TBA";
   
   container.innerHTML = `
 
