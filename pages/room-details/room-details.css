@@ -957,3 +957,235 @@ body {
   margin-bottom: 12px;
   
 }
+
+.loader {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  border: 4px solid rgba(255, 255, 255, .1);
+  border-top: 4px solid #00ff99;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-card,
+.error-state,
+.empty-state {
+  
+  text-align: center;
+  padding: 30px 20px;
+  
+}
+
+.error-state i,
+.empty-state i {
+  
+  font-size: 42px;
+  margin-bottom: 14px;
+  color: #00ff99;
+  
+}
+
+.retry-btn {
+  
+  margin-top: 18px;
+  width: 100%;
+  
+  height: 34px;
+  
+  border: none;
+  
+  border-radius: 10px;
+  
+  cursor: pointer;
+  
+  font-weight: 600;
+  
+}
+
+.skeleton-card {
+  
+  height: 420px;
+  
+  border-radius: 24px;
+  
+  overflow: hidden;
+  
+  position: relative;
+  
+  background: #121212;
+  
+}
+
+.skeleton-card::before {
+  
+  content: "";
+  
+  position: absolute;
+  
+  inset: 0;
+  
+  background:
+  
+    linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, .06),
+      transparent);
+  
+  animation:
+    skeletonMove 1.2s infinite;
+  
+}
+
+@keyframes skeletonMove {
+  
+  from {
+    
+    transform:
+      translateX(-100%);
+    
+  }
+  
+  to {
+    
+    transform:
+      translateX(100%);
+    
+  }
+  
+}
+
+.skeleton-image {
+  
+  height: 200px;
+  
+  background: #181818;
+  
+}
+
+.skeleton-content {
+  
+  padding: 20px;
+  
+}
+
+.skeleton-line {
+  
+  height: 14px;
+  
+  border-radius: 10px;
+  
+  background: #181818;
+  
+  margin-bottom: 12px;
+  
+}
+
+.long {
+  width: 100%;
+}
+
+.short {
+  width: 60%;
+}
+
+.empty-state {
+  
+  display: flex;
+  
+  flex-direction: column;
+  
+  align-items: center;
+  
+  justify-content: center;
+  
+  text-align: center;
+  
+  padding: 50px 25px;
+  
+  background:
+    rgba(255, 255, 255, .03);
+  
+  border:
+    1px solid rgba(255, 255, 255, .05);
+  
+  border-radius: 24px;
+  
+}
+
+.empty-state i {
+  
+  font-size: 48px;
+  
+  color: #00ff99;
+  
+  margin-bottom: 16px;
+  
+}
+
+.empty-state h2 {
+  
+  font-size: 22px;
+  
+  margin-bottom: 8px;
+  
+}
+
+.empty-state p {
+  
+  color: #9c9c9c;
+  
+  line-height: 1.6;
+  
+  max-width: 280px;
+  
+}
+
+.error-state {
+  
+  display: flex;
+  
+  flex-direction: column;
+  
+  align-items: center;
+  
+  text-align: center;
+  
+  padding: 50px 25px;
+  
+  border-radius: 24px;
+  
+  background:
+    rgba(255, 80, 80, .04);
+  
+  border:
+    1px solid rgba(255,
+      80,
+      80,
+      .12);
+  
+}
+
+.error-state i {
+  
+  font-size: 50px;
+  
+  color: #ff6565;
+  
+  margin-bottom: 15px;
+  
+}
+
+.error-state p {
+  
+  color: #aaa;
+  
+  margin-top: 10px;
+  
+}
