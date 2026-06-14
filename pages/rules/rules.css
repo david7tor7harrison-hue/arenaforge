@@ -180,21 +180,22 @@ body{
 
 
 /* RULES */
+/* RULES WRAPPER */
 
-.rules-section{
+.rules-wrapper{
 
   display:flex;
 
   flex-direction:column;
 
-  gap:18px;
+  gap:20px;
+
 }
 
-.rule-card{
 
-  display:flex;
+/* RULE CARD */
 
-  gap:18px;
+.rules-box{
 
   background:
   linear-gradient(
@@ -204,57 +205,97 @@ body{
   );
 
   border:
-  1px solid rgba(255,255,255,.06);
+  1px solid rgba(255,255,255,.08);
 
   border-radius:24px;
 
-  padding:22px;
+  padding:24px;
+
+  backdrop-filter:blur(12px);
+
+  position:relative;
+
+  overflow:hidden;
+
 }
 
-.rule-number{
 
-  min-width:62px;
-  height:62px;
+/* GREEN GLOW */
 
-  border-radius:18px;
+.rules-box::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:-60px;
+  right:-60px;
+
+  width:140px;
+  height:140px;
 
   background:
-  linear-gradient(
-    135deg,
-    #00ff99,
-    #00ccff
-  );
+  rgba(0,255,153,.08);
 
-  color:black;
+  border-radius:50%;
 
-  font-size:20px;
+  filter:blur(40px);
 
-  font-weight:800;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
 }
 
-.rule-content h2{
 
-  font-size:20px;
+/* TITLE */
 
-  margin-bottom:10px;
+.rules-box h2{
+
+  color:#00ff99;
+
+  font-size:22px;
+
+  margin-bottom:18px;
+
 }
 
-.rule-content p{
 
-  color:#bbb;
+/* LIST */
 
-  line-height:1.8;
+.rules-box ul{
+
+  list-style:none;
+
+}
+
+
+.rules-box li{
+
+  position:relative;
+
+  padding-left:26px;
+
+  margin-bottom:14px;
+
+  color:#cfcfcf;
+
+  line-height:1.7;
 
   font-size:14px;
+
 }
 
 
+.rules-box li::before{
+
+  content:"✓";
+
+  position:absolute;
+
+  left:0;
+
+  color:#00ff99;
+
+  font-weight:700;
+
+}
 /* FOOTER */
 .site-footer {
   
@@ -603,4 +644,69 @@ body{
 
     flex-direction:column;
   }
+}
+
+.hero-content h1{
+
+  font-size:42px;
+
+  line-height:1.05;
+
+  margin-bottom:16px;
+
+  text-shadow:
+  0 0 25px rgba(
+    0,
+    255,
+    153,
+    .25
+  );
+
+}
+
+.danger-box{
+
+  border:
+  1px solid rgba(
+    255,
+    70,
+    70,
+    .25
+  );
+
+}
+
+
+.danger-box h2{
+
+  color:#ff5f5f;
+
+}
+
+.rules-alert{
+
+  background:
+  rgba(
+    255,
+    170,
+    0,
+    .08
+  );
+
+  border:
+  1px solid rgba(
+    255,
+    170,
+    0,
+    .2
+  );
+
+  color:#ffd56b;
+
+  padding:18px;
+
+  border-radius:18px;
+
+  line-height:1.6;
+
 }
