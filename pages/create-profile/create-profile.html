@@ -11,12 +11,68 @@
 		Create Profile
 	</title>
 	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	
+	<!-- FONT AWESOME -->
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	
+	
 	<link rel="stylesheet" href="create-profile.css">
 	
 </head>
 
 <body>
 	
+	<nav class="navbar">
+		
+		<div class="nav-left">
+			
+			<img src="../../assets/logo.png" alt="ArenaForge Logo" class="logo">
+			
+			<div class="nav-text">
+				
+				<h1>ArenaForge</h1>
+				
+				<span>Esports Platform</span>
+				
+			</div>
+			
+		</div>
+		
+		<div class="nav-right">
+			
+			<button class="nav-btn">
+			
+				<i class="fa-solid fa-shield"></i>
+				
+			</button>
+			
+		</div>
+		
+	</nav>
+	
+	<div class="hero-box">
+		
+		<span class="hero-tag">
+			ARENAFORGE PLAYER SYSTEM
+		</span>
+		
+		<h1>
+			Create Your Player Key
+		</h1>
+		
+		<p>
+			Register once and participate in Solo,
+			Duo and Squad tournaments using a
+			single Player Key.
+		</p>
+		
+	</div>
 	<div class="container">
 		
 		<h1>
@@ -28,7 +84,9 @@
 			<div class="card">
 				
 				<h2>
-					Account Details
+					
+					📧 Account Details
+					
 				</h2>
 				
 				<input type="email" id="email" placeholder="Email" required>
@@ -44,17 +102,25 @@
 			<div class="card">
 				
 				<h2>
-					Solo Profile
+					🎮 Solo Profile
 				</h2>
-				
 				<input type="text" id="soloUid" placeholder="Solo UID" required>
 				
 			</div>
 			
+			<div class="info-note">
+				
+				Solo UID is mandatory.
+				
+				Duo and Squad UIDs can be added later
+				from My Profile.
+				
+			</div>
 			<div class="card">
 				
 				<h2>
-					Duo Team (Optional)
+					
+					🤝 Duo Team
 				</h2>
 				
 				<input type="text" id="duoP1Uid" placeholder="Duo Player 1 UID">
@@ -66,7 +132,7 @@
 			<div class="card">
 				
 				<h2>
-					Squad Team (Optional)
+					👥 Squad Team
 				</h2>
 				
 				<input type="text" id="squadP1Uid" placeholder="Squad Player 1 UID">
@@ -94,7 +160,7 @@
 			</h2>
 			
 			<p>
-				Your Player Key
+				For Player Key
 			</p>
 			
 			<h1 id="playerKeyText">
@@ -109,6 +175,182 @@
 		
 	</div>
 	
+	<div class="warning-box">
+		
+		⚠ Important
+		
+		Player Key and password are required
+		for tournament registrations, room
+		details and reward claims.
+		
+		Keep them safe.
+		
+	</div>
+	<footer class="site-footer">
+		
+		<div class="footer-top">
+			
+			<div class="footer-brand">
+				
+				<img src="../../assets/logo.png" alt="ArenaForge Logo" class="footer-logo">
+				
+				<h2>ArenaForge</h2>
+				
+				<p>
+					India's competitive Free Fire tournament platform.
+					Secure matches, real players & smooth gameplay.
+				</p>
+				
+			</div>
+			
+			
+			<div class="footer-links">
+				
+				<h3>Quick Links</h3>
+				
+				<a href="../../index.html">Home</a>
+				
+				<a href="../../index.html#tournamentModes" class="account-card">Tournaments</a>
+				
+				<a href="../support/support.html">
+					Contact
+				</a>
+			</div>
+			
+			
+			<div class="footer-links">
+				
+				<h3>Community</h3>
+				
+				<a href="#">Discord</a>
+				
+				<a href="#">Telegram</a>
+				
+				<a href="#">Instagram</a>
+				
+				<a href="#">YouTube</a>
+				
+			</div>
+			
+		</div>
+		
+		
+		<!-- SOCIALS -->
+		
+		<div class="footer-socials">
+			
+			<a href="#">
+				<i class="fab fa-instagram"></i>
+			</a>
+			
+			<a href="#">
+				<i class="fab fa-discord"></i>
+			</a>
+			
+			<a href="#">
+				<i class="fab fa-youtube"></i>
+			</a>
+			
+		</div>
+		
+		
+		<!-- PAYMENTS -->
+		
+		<div class="footer-payments">
+			
+			<p>
+				Trusted Payment Partners
+			</p>
+			
+			<div class="payment-logos">
+				
+				<img src="../../assets/upi.png" alt="UPI">
+				
+				<img src="../../assets/gpay.png" alt="Google Pay">
+				
+				<img src="../../assets/paytm.png" alt="Paytm">
+				
+				<img src="../../assets/phonepe.png" alt="PhonePe">
+				
+				<img src="../../assets/mastercard.png" alt="MasterCard">
+				
+			</div>
+			
+		</div>
+		
+		
+		<!-- BOTTOM -->
+		
+		<div class="footer-bottom">
+			
+			<p>
+				© 2026 ArenaForge. All Rights Reserved.
+			</p>
+			
+			<small>
+				Secure payments powered by trusted gateways.
+			</small>
+			
+		</div>
+		
+	</footer>
+	
+	
+	<div class="tabbar">
+		
+		<a href="../more/more.html" class="tab-item active">
+		
+			<i class="fa-solid fa-table-cells-large"></i>
+			
+			<span>More</span>
+			
+		</a>
+		
+		
+		<a href="../../index.html" class="tab-item">
+		
+			<i class="fa-solid fa-gamepad"></i>
+			
+			<span>Play</span>
+			
+		</a>
+		
+		
+		<a href="../support/support.html" class="tab-item">
+		
+			<i class="fa-regular fa-circle-question"></i>
+			
+			<span>Support</span>
+			
+		</a>
+		
+	</div>
+	
+	<div
+id="popupOverlay"
+class="popup-overlay"
+>
+
+<div class="popup-box">
+
+<h2 id="popupTitle">
+Alert
+</h2>
+
+<p id="popupMessage">
+Message
+</p>
+
+<button
+onclick="closePopup()"
+>
+OK
+</button>
+
+</div>
+
+</div>
+
 	<script src="create-profile.js">
 	</script>
 	
